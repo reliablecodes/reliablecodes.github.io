@@ -64,8 +64,8 @@ export const selectedWork = [
     summary: 'Hierarchical graph attention for explainable neural code retrieval, combining pretrained code representations with program structure.',
     meta: 'Explainable code retrieval · GNNs',
     href: '/research#graphcodebert-gat',
-    kind: 'Published research system',
-    status: 'Published / accepted',
+    kind: 'Featured research system',
+    status: 'Featured work',
     challenge: 'Improve neural code retrieval while preserving a useful connection between model predictions and program structure.',
     contribution: [
       'Built a graph-based retrieval pipeline around pretrained code representations and hierarchical graph attention.',
@@ -102,8 +102,8 @@ export const researchItems = [
   {
     slug: 'graphcodebert-gat',
     title: 'GraphCodeBERT-GAT: Hierarchical Graph Attention Networks for Explainable Neural Code Retrieval',
-    venue: 'ICCWAMTIP 2025',
-    status: 'Published / accepted',
+    venue: '',
+    status: 'Featured work',
     focus: 'Explainable neural code retrieval with graph attention over program structure.',
   },
 ];
