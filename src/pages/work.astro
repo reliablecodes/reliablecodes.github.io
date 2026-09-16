@@ -40,11 +40,11 @@ import { selectedWork } from '../data/portfolio';
               <div class="case-detail">
                 <h3>What I owned</h3>
                 <ul>
-                  {project.contribution.map((item) => <li>{item}</li>)}
+                  {project.contribution?.map((item) => <li>{item}</li>)}
                 </ul>
               </div>
               <div class="case-stack">
-                {project.stack.map((item) => <span>{item}</span>)}
+                {project.stack?.map((item) => <span>{item}</span>)}
               </div>
               {project.href !== `/work#${project.slug}` && (
                 <div class="case-link">
