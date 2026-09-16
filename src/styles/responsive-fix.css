@@ -1,30 +1,42 @@
-/* Mobile safety overrides: keep the viewport locked, navigation reachable, and large display type/images fluid. */
 html, body { max-width: 100%; overflow-x: clip; }
 main, section, header, footer, nav, .section-shell, .hero, .portrait-wrap, .lab-banner { min-width: 0; }
 .site-header { width: 100%; max-width: 100vw; }
 .wordmark, .header-actions { min-width: 0; }
 .footer-mark { max-width: 100%; overflow: hidden; }
-.portrait-wrap img { display: block; width: 100%; max-width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; object-position: center 22%; }
+.portrait-wrap img { display: block !important; visibility: visible !important; opacity: 1 !important; width: 100% !important; max-width: 100% !important; height: auto !important; aspect-ratio: 1 / 1; object-fit: cover !important; object-position: center top !important; }
+
+@media (min-width: 901px) {
+  .footer-mark { font-size: clamp(3.6rem, 9.2vw, 9.25rem) !important; }
+  .portrait-wrap { min-width: 0; }
+}
 
 @media (max-width: 900px) {
-  .site-header { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-inline: 16px; }
-  .header-actions { margin-left: auto; flex: 0 0 auto; }
+  body { width: 100%; min-width: 0; overflow-x: hidden; }
+  .site-header { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-inline: 16px; overflow: hidden; }
+  .header-actions { margin-left: auto; flex: 0 0 auto; max-width: 46vw; }
   .wordmark { flex: 1 1 auto; min-width: 0; }
-  .menu-button { display: inline-flex; align-items: center; justify-content: center; min-width: 48px; min-height: 44px; padding: 8px 0 8px 12px; position: relative; z-index: 60; color: var(--ink); font-weight: 800; }
-  .mobile-menu { left: 0; right: 0; width: 100vw; max-width: 100vw; overflow-x: hidden; overflow-y: auto; overscroll-behavior: contain; }
+  .menu-button { display: inline-flex !important; align-items: center; justify-content: center; min-width: 48px; min-height: 44px; padding: 8px 0 8px 12px; position: relative; z-index: 60; color: var(--ink); font-weight: 800; white-space: nowrap; }
+  .mobile-menu { left: 0; right: 0; width: 100vw !important; max-width: 100vw !important; overflow-x: hidden; overflow-y: auto; overscroll-behavior: contain; }
+  .mobile-menu a { overflow-wrap: anywhere; }
   .hero, .lab-banner, .statement, .engineering-console, .project-index, .research-section, .experience-section, .contact-section { max-width: 100%; }
-  .hero h1, .section-heading h2, .about-lead h2, .contact-section h2, .page-hero h1 { overflow-wrap: anywhere; }
+  .hero h1, .section-heading h2, .about-lead h2, .contact-section h2, .page-hero h1 { max-width: 100%; overflow-wrap: anywhere; }
   .portrait-wrap { width: 100%; min-height: 0; }
   .portrait-wrap img { max-height: min(78vh, 720px); }
+  .portrait-meta { flex-wrap: wrap; row-gap: 6px; }
   .lab-banner { width: 100%; }
   .lab-banner img { width: 100%; height: auto; aspect-ratio: 2400 / 1256; object-fit: cover; }
+  .work-row, .research-row, .experience-row, .project-index-row { min-width: 0; }
+  .work-main, .work-side, .research-row > div, .experience-row > *, .project-index-row > * { min-width: 0; overflow-wrap: anywhere; }
+  .console-grid pre { width: 100%; max-width: 100%; white-space: pre-wrap; overflow-wrap: anywhere; }
+  .site-footer { overflow: hidden; }
+  .footer-mark { width: 100%; max-width: 100%; font-size: clamp(3rem, 17.2vw, 6.5rem) !important; letter-spacing: -.075em; white-space: nowrap !important; line-height: .88; }
 }
 
 @media (max-width: 560px) {
   :root { --shell: calc(100vw - 32px); }
   .site-header { height: 60px; padding-inline: 14px; }
   .mobile-menu { inset: 60px 0 0; padding: 22px 16px 30px; }
-  .mobile-menu a { font-size: clamp(1.2rem, 7vw, 1.6rem); overflow-wrap: anywhere; }
+  .mobile-menu a { font-size: clamp(1.2rem, 7vw, 1.6rem); }
   .hero { padding-top: 92px; gap: 34px; }
   .hero h1 { font-size: clamp(3rem, 15vw, 5.4rem); }
   .eyebrow, .section-number { line-height: 1.45; }
@@ -32,5 +44,8 @@ main, section, header, footer, nav, .section-shell, .hero, .portrait-wrap, .lab-
   .portrait-wrap figcaption { overflow-wrap: anywhere; }
   .portrait-wrap img { max-height: none; }
   .lab-banner-copy h2 { font-size: clamp(2rem, 12vw, 3.5rem); }
-  .footer-mark { white-space: normal; overflow-wrap: anywhere; font-size: 17vw; }
+  .footer-mark { font-size: 16.5vw !important; }
 }
+
+.terminal-video-section { width: 100%; margin: 0; padding: 0; overflow: hidden; background: #10110f; }
+.terminal-video-section video { display: block; width: 100%; height: auto; margin: 0; border: 0; outline: 0; }
