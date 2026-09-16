@@ -1,11 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { selectedWork } from '../data/portfolio';
+import { selectedWork, appliedProjects } from '../data/portfolio';
 ---
 
 <BaseLayout
   title="Selected Work — TundeCodes"
-  description="Selected product, production, and research engineering work by Sodiq Babatunde Ologun."
+  description="Selected product, production, research, and applied engineering work by Sodiq Babatunde Ologun."
 >
   <section class="page-hero section-shell reveal">
     <p class="section-number">WORK / DEBUG · BUILD · VERIFY</p>
@@ -58,5 +58,21 @@ import { selectedWork } from '../data/portfolio';
         </article>
       );
     })}
+  </section>
+
+  <section id="more-projects" class="project-archive section-shell">
+    <div class="section-heading reveal">
+      <div><p class="section-number">PROJECT ARCHIVE</p><h2>More systems.<br/>More domains.</h2></div>
+      <p>Applied projects spanning verification, full-stack systems, computer vision, bioinformatics, signal processing, and static analysis.</p>
+    </div>
+    <div class="project-index-list">
+      {appliedProjects.map((project, i) => (
+        <a class="project-index-row reveal" href={project.href ?? 'https://github.com/xohdik?tab=repositories'} target="_blank" rel="noreferrer">
+          <span>{String(i + 1).padStart(2, '0')}</span>
+          <div><h3>{project.title}</h3><p>{project.description}</p></div>
+          <small>{project.stack}</small>
+        </a>
+      ))}
+    </div>
   </section>
 </BaseLayout>

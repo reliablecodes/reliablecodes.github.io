@@ -1,13 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { selectedWork, researchItems, experience, capabilities } from '../data/portfolio';
+import { selectedWork, researchItems, appliedProjects, experience, capabilities } from '../data/portfolio';
 const portraitUrl = 'https://raw.githubusercontent.com/xohdik/xohdik.github.io/tundecodes-redesign/public/images/tundecodes.webp';
 const resumeUrl = 'https://raw.githubusercontent.com/xohdik/xohdik.github.io/tundecodes-redesign/public/resume.pdf';
 ---
 
 <BaseLayout
   title="TundeCodes — Software Engineer"
-  description="Sodiq Babatunde Ologun is a software engineer and researcher who debugs complex products, production systems, and software-engineering evidence."
+  description="Sodiq Babatunde Ologun is a software engineer and researcher specializing in software verification, programming languages, and reliable AI-generated code."
 >
   <section class="hero section-shell">
     <div class="hero-copy reveal">
@@ -59,13 +59,50 @@ const resumeUrl = 'https://raw.githubusercontent.com/xohdik/xohdik.github.io/tun
     </div>
   </section>
 
+  <section class="engineering-console section-shell reveal">
+    <div class="console-heading">
+      <p class="section-number">03 / ENGINEERING CONSOLE</p>
+      <p>Small traces from the way I think about production software: verify assumptions, expose failure states, and keep the path to a fix readable.</p>
+    </div>
+    <div class="console-grid">
+      <pre><code><span class="code-comment">// verification gate</span>
+const deploy = evidence =&gt;
+  evidence.passes()
+    ? <span class="code-accent">ship()</span>
+    : debug(evidence);</code></pre>
+      <pre><code><span class="code-comment"># reliability loop</span>
+while system.is_live():
+    failure = observe()
+    if failure:
+        isolate(failure)
+        <span class="code-accent">fix_root_cause()</span></code></pre>
+    </div>
+  </section>
+
+  <section class="project-index section-shell">
+    <div class="section-heading reveal">
+      <div><p class="section-number">04 / MORE BUILDS</p><h2>Applied engineering,<br/>across domains.</h2></div>
+      <p>Selected systems and experiments from the broader project archive.</p>
+    </div>
+    <div class="project-index-list">
+      {appliedProjects.slice(0, 6).map((project, i) => (
+        <a class="project-index-row reveal" href={project.href ?? '/work#more-projects'} target={project.href ? '_blank' : undefined} rel={project.href ? 'noreferrer' : undefined}>
+          <span>{String(i + 1).padStart(2, '0')}</span>
+          <div><h3>{project.title}</h3><p>{project.description}</p></div>
+          <small>{project.stack}</small>
+        </a>
+      ))}
+    </div>
+    <div class="section-more reveal"><a href="/work#more-projects">View complete project archive ↗</a></div>
+  </section>
+
   <section id="research" class="research-section section-shell">
     <div class="section-heading reveal">
-      <div><p class="section-number">03 / DEBUG THE EVIDENCE</p><h2>Question the metric.<br/>Trace the mechanism.</h2></div>
+      <div><p class="section-number">05 / DEBUG THE EVIDENCE</p><h2>Question the metric.<br/>Trace the mechanism.</h2></div>
       <p>My research focuses on software behavior, code intelligence, benchmark validity, and experimental methods that make misleading conclusions harder to hide.</p>
     </div>
     <div class="research-list">
-      {researchItems.slice(0, 4).map((item, i) => {
+      {researchItems.map((item, i) => {
         const isAnonymous = 'anonymous' in item && item.anonymous === true;
         return isAnonymous ? (
           <article class="research-row anonymous-research reveal">
@@ -85,7 +122,7 @@ const resumeUrl = 'https://raw.githubusercontent.com/xohdik/xohdik.github.io/tun
 
   <section id="experience" class="experience-section section-shell">
     <div class="section-heading reveal">
-      <div><p class="section-number">04 / EXPERIENCE</p><h2>Debugging from production to research.</h2></div>
+      <div><p class="section-number">06 / EXPERIENCE</p><h2>Debugging from production to research.</h2></div>
       <p>My engineering perspective comes from operating software for real users, working with operational data, and investigating failure modes under controlled evaluation.</p>
     </div>
     <div class="experience-list">
@@ -102,12 +139,13 @@ const resumeUrl = 'https://raw.githubusercontent.com/xohdik/xohdik.github.io/tun
   <section id="about" class="about-section">
     <div class="section-shell about-grid">
       <div class="about-lead reveal">
-        <p class="section-number">05 / ABOUT</p>
+        <p class="section-number">07 / ABOUT</p>
         <h2>Debugging is how I think.</h2>
       </div>
       <div class="about-copy reveal delay-1">
-        <p>I’m a software engineer and researcher working across product architecture, production infrastructure, full-stack development, data systems, program analysis, and machine learning for software engineering.</p>
-        <p>I care about maintainable systems, defensible technical decisions, measurable outcomes, and evidence that survives scrutiny.</p>
+        <p><strong>🔻I specialize in software verification and programming languages, with a focus on making AI-generated code correct, reliable, and explainable.</strong> I develop methods that combine formal analysis, program graphs, and neuro-symbolic reasoning to ensure AI code can be trusted before deployment.</p>
+        <p>◾️In the long run, I aim to contribute to the evolution of neuro-symbolic software analysis: AI systems that do not merely mimic human intuition, but reason transparently and ethically about software behavior.</p>
+        <p class="about-manifesto">🔺We build the next generation of reliable computing systems.</p>
         <div class="capability-list">
           {capabilities.map((cap) => <span>{cap}</span>)}
         </div>
@@ -116,14 +154,16 @@ const resumeUrl = 'https://raw.githubusercontent.com/xohdik/xohdik.github.io/tun
   </section>
 
   <section class="contact-section section-shell reveal">
-    <p class="section-number">06 / CONTACT</p>
+    <p class="section-number">08 / CONTACT</p>
     <h2>Found a difficult problem?</h2>
     <div class="contact-grid">
-      <p>I'm interested in serious engineering problems, product architecture, software reliability research, and systems that need to work beyond the demo.</p>
+      <p>I'm interested in serious engineering problems, software verification, program analysis, product architecture, and systems that need to work beyond the demo.</p>
       <div class="contact-links">
         <a href="mailto:ologunbabatunde@gmail.com">Email ↗</a>
         <a href="https://github.com/xohdik" target="_blank" rel="noreferrer">GitHub ↗</a>
         <a href="https://www.linkedin.com/in/ologunbabatunde" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+        <a href="https://www.friendra.com" target="_blank" rel="noreferrer">Friendra ↗</a>
+        <a href="tel:+8618583994003">Phone ↗</a>
         <a href={resumeUrl} target="_blank" rel="noreferrer">Résumé ↗</a>
       </div>
     </div>

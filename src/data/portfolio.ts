@@ -21,9 +21,9 @@ export const selectedWork = [
     slug: 'friendra',
     index: '02',
     title: 'Friendra',
-    role: 'Founder / CTO / Server Administrator',
+    role: 'CTO / Server Administrator',
     summary: 'A privacy-first social platform designed, deployed, and operated end-to-end, including infrastructure, PostgreSQL, Nginx, Cloudflare, monitoring, and incident response.',
-    meta: 'Production systems · 2,000+ users · 99.9% availability',
+    meta: 'Production systems · 2,000+ users',
     href: 'https://www.friendra.com',
     kind: 'Production platform',
     status: 'Live system',
@@ -31,7 +31,7 @@ export const selectedWork = [
     contribution: [
       'Designed the deployment architecture around Ubuntu, Nginx, PostgreSQL, SSL, and Cloudflare.',
       'Owned backup strategy, monitoring, incident response, server hardening, and deployment operations.',
-      'Operated the platform for 2,000+ users while maintaining 99.9% availability.',
+      'Operated a live platform for 2,000+ users while handling day-to-day reliability work.',
     ],
     stack: ['Linux', 'Nginx', 'PostgreSQL', 'Cloudflare', 'Ruby on Rails', 'React'],
   },
@@ -93,18 +93,68 @@ export const researchItems = [
     anonymous: true,
   },
   {
+    slug: 'cafa',
+    title: 'Capability Attribution via Functional ANOVA (CAFA): A Validated Perturbation Framework for Explaining Software Engineering AI Generalization',
+    venue: 'Software engineering AI generalization',
+    status: 'Ongoing research',
+    focus: 'A validated perturbation framework for separating and attributing the mechanisms behind measured generalization in software engineering AI systems.',
+  },
+  {
     slug: 'graphcodebert-gat',
     title: 'GraphCodeBERT-GAT: Hierarchical Graph Attention Networks for Explainable Neural Code Retrieval',
     venue: 'ICCWAMTIP 2025',
     status: 'Published / accepted',
     focus: 'Explainable neural code retrieval with graph attention over program structure.',
   },
+];
+
+export const appliedProjects = [
   {
-    slug: 'time-mmd',
-    title: 'Multimodal Time Series Forecasting in Frequency Domain',
-    venue: 'Thesis / journal research',
-    status: 'Ongoing research',
-    focus: 'Frequency-domain multimodal forecasting with strict alignment controls, intervention ablations, and external-baseline validation.',
+    title: 'Neuro-Symbolic Program Verification',
+    description: 'Hybrid verification work combining formal methods with graph-based neural representations for reasoning about generated program behavior.',
+    stack: 'Neuro-symbolic · Program analysis · GNNs · Siamese networks',
+  },
+  {
+    title: 'Restaurant Ordering System',
+    description: 'Full-stack ordering and kitchen-display system with real-time order management.',
+    stack: 'C++ · Qt5 · Crow · MongoDB',
+    href: 'https://github.com/xohdik/Restaurant-Ordering-system',
+  },
+  {
+    title: 'E-Health Management',
+    description: 'Appointment scheduling and medical-record management with role-based access.',
+    stack: 'Node.js · MongoDB · React',
+    href: 'https://github.com/xohdik/E-Health-Management-System',
+  },
+  {
+    title: 'Delay Encryption / Blockchain',
+    description: 'VDF-based blockchain consensus and delay-encryption experiments for security protocols.',
+    stack: 'Blockchain · Cryptography · VDF',
+  },
+  {
+    title: 'Protein Interaction (STRING)',
+    description: 'Deep learning over protein-protein interaction graphs using graph neural networks.',
+    stack: 'PyTorch Geometric · Bioinformatics · GNNs',
+  },
+  {
+    title: 'Dual-Function Radar-Communication Design',
+    description: 'Joint radar-communication system design for spectrum sharing, target detection, and data transmission.',
+    stack: 'Deep learning · Signal processing · MIMO',
+  },
+  {
+    title: 'Industrial Park Detection with YOLO',
+    description: 'Real-time object detection for industrial environments and safety monitoring.',
+    stack: 'YOLOv8 · Computer vision · Object detection',
+  },
+  {
+    title: 'Scalable Program Graph Extraction for Large Codebases',
+    description: 'High-performance extraction and analysis of control-flow and data-flow graphs from multi-language repositories.',
+    stack: 'Static analysis · Systems · Program graphs · Tooling',
+  },
+  {
+    title: 'Integrated Chip Defect Detection',
+    description: 'Automated visual inspection for micro-defects on integrated circuit chips.',
+    stack: 'Halcon · Machine vision · Defect detection · QC automation',
   },
 ];
 
@@ -117,7 +167,7 @@ export const experience = [
 ];
 
 export const capabilities = [
-  'Software architecture', 'Product engineering', 'Production systems', 'Commerce platforms', 'Python', 'TypeScript / JavaScript',
-  'React', 'PostgreSQL', 'Linux / Nginx', 'Docker', 'Program analysis', 'Experimental design',
-  'Benchmark auditing', 'Graph neural networks', 'PyTorch', 'Code intelligence',
+  'Software verification', 'Programming languages', 'Formal analysis', 'Program graphs', 'Neuro-symbolic reasoning', 'Code intelligence',
+  'Software architecture', 'Product engineering', 'Production systems', 'Python', 'TypeScript / JavaScript', 'React',
+  'PostgreSQL', 'Linux / Nginx', 'Docker', 'Experimental design', 'Benchmark auditing', 'Graph neural networks', 'PyTorch',
 ];
