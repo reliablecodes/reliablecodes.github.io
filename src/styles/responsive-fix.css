@@ -3,7 +3,40 @@ main, section, header, footer, nav, .section-shell, .hero, .portrait-wrap, .lab-
 .site-header { width: 100%; max-width: 100vw; }
 .wordmark, .header-actions { min-width: 0; }
 .footer-mark { max-width: 100%; overflow: hidden; }
-.portrait-wrap img { display: block !important; visibility: visible !important; opacity: 1 !important; width: 100% !important; max-width: 100% !important; height: auto !important; aspect-ratio: 1 / 1; object-fit: cover !important; object-position: center top !important; }
+.portrait-wrap img { display: block !important; visibility: visible !important; opacity: 1 !important; width: 100% !important; max-width: 100% !important; height: auto !important; aspect-ratio: 1 / 1; object-fit: cover !important; object-position: center top !important; filter: none !important; background: transparent !important; }
+
+/* Compact organization identity above the hero headline. */
+.hero .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  max-width: 100%;
+  margin-bottom: 24px;
+  padding: 7px 11px 7px 7px;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--paper) 92%, transparent);
+  font-size: 0;
+  line-height: 1;
+}
+.hero .eyebrow::before {
+  content: "" !important;
+  display: block;
+  flex: 0 0 auto;
+  width: 42px;
+  height: 24px;
+  border: 1px solid color-mix(in srgb, var(--ink) 38%, transparent);
+  background: url('/images/reliablecode-banner.webp') center / cover no-repeat;
+}
+.hero .eyebrow::after {
+  content: "RELIABLECODE GROUP  /  ORGANIZATION";
+  display: block;
+  min-width: 0;
+  color: var(--ink);
+  font: 800 10px/1.15 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  letter-spacing: .08em;
+  white-space: nowrap;
+}
 
 @media (min-width: 901px) {
   .footer-mark { font-size: clamp(3.6rem, 9.2vw, 9.25rem) !important; }
@@ -40,6 +73,9 @@ main, section, header, footer, nav, .section-shell, .hero, .portrait-wrap, .lab-
   .hero { padding-top: 92px; gap: 34px; }
   .hero h1 { font-size: clamp(3rem, 15vw, 5.4rem); }
   .eyebrow, .section-number { line-height: 1.45; }
+  .hero .eyebrow { gap: 8px; padding: 6px 8px 6px 6px; }
+  .hero .eyebrow::before { width: 36px; height: 21px; }
+  .hero .eyebrow::after { font-size: 8.5px; letter-spacing: .055em; white-space: normal; }
   .portrait-meta { align-items: flex-start; flex-direction: column; gap: 6px; }
   .portrait-wrap figcaption { overflow-wrap: anywhere; }
   .portrait-wrap img { max-height: none; }
