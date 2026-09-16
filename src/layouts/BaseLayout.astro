@@ -1,0 +1,146 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+}
+
+const {
+  title = 'TundeCodes — Software Engineer',
+  description = 'Software engineer and researcher debugging complex products, production systems, and software-engineering evidence.',
+  image = 'https://raw.githubusercontent.com/xohdik/xohdik.github.io/tundecodes-redesign/public/images/tundecodes.webp',
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin);
+const socialImage = new URL(image, Astro.site ?? Astro.url.origin);
+const pathname = Astro.url.pathname;
+const resumeUrl = 'https://raw.githubusercontent.com/xohdik/xohdik.github.io/tundecodes-redesign/public/resume.pdf';
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Sodiq Babatunde Ologun',
+  alternateName: 'TundeCodes',
+  url: String(new URL('/', Astro.site ?? Astro.url.origin)),
+  image: String(socialImage),
+  jobTitle: 'Software Engineer and Researcher',
+  sameAs: [
+    'https://github.com/xohdik',
+    'https://www.linkedin.com/in/ologunbabatunde',
+  ],
+  knowsAbout: [
+    'Software Engineering',
+    'Software Reliability',
+    'Program Analysis',
+    'Code Intelligence',
+    'Data Engineering',
+    'Production Systems',
+    'Product Engineering',
+  ],
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#efeee8" />
+    <meta name="description" content={description} />
+    <meta name="author" content="Sodiq Babatunde Ologun" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={socialImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <title>{title}</title>
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  </head>
+  <body>
+    <a class="skip-link" href="#content">Skip to content</a>
+
+    <header class="site-header">
+      <a class="wordmark" href="/" aria-label="TundeCodes home">TUNDE<span>CODES</span></a>
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <a href="/work" aria-current={pathname.startsWith('/work') ? 'page' : undefined}>Work</a>
+        <a href="/research" aria-current={pathname.startsWith('/research') ? 'page' : undefined}>Research</a>
+        <a href="/#experience">Experience</a>
+        <a href="/#about">About</a>
+      </nav>
+      <div class="header-actions">
+        <span class="debug-status desktop-only"><i></i> DEBUG MODE</span>
+        <a class="text-link desktop-only" href={resumeUrl} target="_blank" rel="noreferrer">Résumé ↗</a>
+        <button class="menu-button" aria-label="Open navigation menu" aria-expanded="false">Menu</button>
+      </div>
+    </header>
+
+    <div class="mobile-menu" aria-hidden="true">
+      <div class="mobile-menu-status"><span></span> DEBUG MODE</div>
+      <a href="/work">Work</a>
+      <a href="/research">Research</a>
+      <a href="/#experience">Experience</a>
+      <a href="/#about">About</a>
+      <a href={resumeUrl} target="_blank" rel="noreferrer">Résumé ↗</a>
+    </div>
+
+    <main id="content">
+      <slot />
+    </main>
+
+    <footer class="site-footer section-shell">
+      <div class="footer-mark">TUNDE<span>CODES</span></div>
+      <div>
+        <span>DEBUG · BUILD · VERIFY</span>
+        <span>SOFTWARE ENGINEER · RESEARCHER</span>
+        <span>© 2026</span>
+      </div>
+    </footer>
+
+    <script>
+      const menuButton = document.querySelector('.menu-button');
+      const mobileMenu = document.querySelector('.mobile-menu');
+      const menuLinks = document.querySelectorAll('.mobile-menu a');
+
+      const closeMenu = () => {
+        menuButton?.setAttribute('aria-expanded', 'false');
+        mobileMenu?.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('menu-open');
+      };
+
+      menuButton?.addEventListener('click', () => {
+        const open = menuButton.getAttribute('aria-expanded') === 'true';
+        menuButton.setAttribute('aria-expanded', String(!open));
+        mobileMenu?.setAttribute('aria-hidden', String(open));
+        document.body.classList.toggle('menu-open', !open);
+      });
+      menuLinks.forEach((link) => link.addEventListener('click', closeMenu));
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') closeMenu();
+      });
+
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reducedMotion) {
+        document.querySelectorAll('.reveal').forEach((el) => el.classList.add('is-visible'));
+      } else {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px' });
+        document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { researchItems } from '../data/portfolio';
+---
+
+<BaseLayout
+  title="Research — TundeCodes"
+  description="Research by Sodiq Babatunde Ologun on software reliability, code intelligence, benchmark validity, program behavior, and multimodal forecasting."
+>
+  <section class="page-hero section-shell reveal">
+    <p class="section-number">RESEARCH / DEBUG THE EVIDENCE</p>
+    <h1>Trace the failure mode. Test the explanation.</h1>
+    <p>My research asks what software models actually learn, where evaluation can mislead us, and how experimental design can make those failure modes visible.</p>
+  </section>
+
+  <section class="research-detail-list section-shell">
+    {researchItems.map((item, i) => {
+      const isAnonymous = 'anonymous' in item && item.anonymous === true;
+      return isAnonymous ? (
+        <article class="research-detail anonymous-research reveal" id={item.slug}>
+          <div><h2>{item.title}</h2></div>
+        </article>
+      ) : (
+        <article class="research-detail reveal" id={item.slug}>
+          <div class="research-detail-index">{String(i + 1).padStart(2, '0')}</div>
+          <div>
+            <p class="research-status">{item.status}</p>
+            <h2>{item.title}</h2>
+            <p class="research-venue">{item.venue}</p>
+            <p class="research-focus">{item.focus}</p>
+          </div>
+        </article>
+      );
+    })}
+  </section>
+
+  <section class="research-principles section-shell reveal">
+    <p class="section-number">DEBUG PROTOCOL</p>
+    <div class="principles-grid">
+      <div><strong>01</strong><h3>Reproduce the failure</h3><p>Before changing the model, make the evaluation failure concrete and measurable.</p></div>
+      <div><strong>02</strong><h3>Isolate the mechanism</h3><p>Use controlled interventions to distinguish memorization, shortcuts, representation effects, and genuine behavioral signal.</p></div>
+      <div><strong>03</strong><h3>Lock the evidence</h3><p>Freeze artifacts, recompute deterministically, and keep the path from raw data to conclusion auditable.</p></div>
+    </div>
+  </section>
+</BaseLayout>

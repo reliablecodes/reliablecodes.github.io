@@ -1,0 +1,131 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { selectedWork, researchItems, experience, capabilities } from '../data/portfolio';
+const portraitUrl = 'https://raw.githubusercontent.com/xohdik/xohdik.github.io/tundecodes-redesign/public/images/tundecodes.webp';
+const resumeUrl = 'https://raw.githubusercontent.com/xohdik/xohdik.github.io/tundecodes-redesign/public/resume.pdf';
+---
+
+<BaseLayout
+  title="TundeCodes — Software Engineer"
+  description="Sodiq Babatunde Ologun is a software engineer and researcher who debugs complex products, production systems, and software-engineering evidence."
+>
+  <section class="hero section-shell">
+    <div class="hero-copy reveal">
+      <p class="eyebrow">DEBUG · BUILD · VERIFY</p>
+      <h1>I debug systems before they <em>break trust.</em></h1>
+      <p class="hero-intro">I build products, operate production systems, and investigate software behavior with the same mindset: find the hidden failure mode, understand it, and engineer something stronger.</p>
+      <div class="hero-links">
+        <a class="primary-link" href="#work">Selected work <span>↓</span></a>
+        <a class="plain-link" href="https://github.com/xohdik" target="_blank" rel="noreferrer">GitHub ↗</a>
+      </div>
+    </div>
+
+    <figure class="portrait-wrap reveal delay-1">
+      <div class="portrait-meta"><span>SOFTWARE ENGINEER · RESEARCHER</span><span>DEBUG / 2026</span></div>
+      <img src={portraitUrl} width="900" height="900" alt="Portrait of Sodiq Babatunde Ologun" loading="eager" fetchpriority="high" />
+      <figcaption>SODIQ BABATUNDE OLOGUN</figcaption>
+    </figure>
+  </section>
+
+  <section class="statement section-shell reveal">
+    <p class="section-number">01 / DEBUG MINDSET</p>
+    <p class="statement-copy">I work by <strong>finding what does not hold up</strong>: in product architecture, production infrastructure, data, experiments, and model evaluation. Then I build the fix.</p>
+  </section>
+
+  <section id="work" class="work-section dark-section">
+    <div class="section-shell">
+      <div class="section-heading reveal">
+        <div><p class="section-number">02 / BUILD & DEBUG</p><h2>Real systems.<br/>Hard problems.</h2></div>
+        <p>Current product engineering, production systems, and research work arranged by what best represents my engineering depth today.</p>
+      </div>
+      <div class="work-list">
+        {selectedWork.slice(0, 5).map((project) => {
+          const isAnonymous = 'anonymous' in project && project.anonymous === true;
+          return isAnonymous ? (
+            <a class="work-row anonymous-work reveal" href={project.href}>
+              <div class="work-main"><h3>{project.title}</h3></div>
+            </a>
+          ) : (
+            <a class="work-row reveal" href={project.href} target={project.href.startsWith('http') ? '_blank' : undefined} rel={project.href.startsWith('http') ? 'noreferrer' : undefined}>
+              <span class="work-index">{project.index}</span>
+              <div class="work-main"><h3>{project.title}</h3><p>{project.summary}</p></div>
+              <div class="work-side"><span>{project.role}</span><small>{project.status} · {project.meta}</small></div>
+              <span class="work-arrow">↗</span>
+            </a>
+          );
+        })}
+      </div>
+      <div class="section-more reveal"><a href="/work">View all selected work ↗</a></div>
+    </div>
+  </section>
+
+  <section id="research" class="research-section section-shell">
+    <div class="section-heading reveal">
+      <div><p class="section-number">03 / DEBUG THE EVIDENCE</p><h2>Question the metric.<br/>Trace the mechanism.</h2></div>
+      <p>My research focuses on software behavior, code intelligence, benchmark validity, and experimental methods that make misleading conclusions harder to hide.</p>
+    </div>
+    <div class="research-list">
+      {researchItems.slice(0, 4).map((item, i) => {
+        const isAnonymous = 'anonymous' in item && item.anonymous === true;
+        return isAnonymous ? (
+          <article class="research-row anonymous-research reveal">
+            <div><h3>{item.title}</h3></div>
+          </article>
+        ) : (
+          <article class="research-row reveal">
+            <span>{String(i + 1).padStart(2, '0')}</span>
+            <div><h3>{item.title}</h3><p>{item.venue}</p></div>
+            <p>{item.status}</p>
+          </article>
+        );
+      })}
+    </div>
+    <div class="section-more reveal"><a href="/research">View research ↗</a></div>
+  </section>
+
+  <section id="experience" class="experience-section section-shell">
+    <div class="section-heading reveal">
+      <div><p class="section-number">04 / EXPERIENCE</p><h2>Debugging from production to research.</h2></div>
+      <p>My engineering perspective comes from operating software for real users, working with operational data, and investigating failure modes under controlled evaluation.</p>
+    </div>
+    <div class="experience-list">
+      {experience.map(([date, role, org, desc]) => (
+        <article class="experience-row reveal">
+          <time>{date}</time>
+          <div><h3>{role}</h3><p>{org}</p></div>
+          <p>{desc}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section id="about" class="about-section">
+    <div class="section-shell about-grid">
+      <div class="about-lead reveal">
+        <p class="section-number">05 / ABOUT</p>
+        <h2>Debugging is how I think.</h2>
+      </div>
+      <div class="about-copy reveal delay-1">
+        <p>I’m a software engineer and researcher working across product architecture, production infrastructure, full-stack development, data systems, program analysis, and machine learning for software engineering.</p>
+        <p>I care about maintainable systems, defensible technical decisions, measurable outcomes, and evidence that survives scrutiny.</p>
+        <div class="capability-list">
+          {capabilities.map((cap) => <span>{cap}</span>)}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section section-shell reveal">
+    <p class="section-number">06 / CONTACT</p>
+    <h2>Found a difficult problem?</h2>
+    <div class="contact-grid">
+      <p>I'm interested in serious engineering problems, product architecture, software reliability research, and systems that need to work beyond the demo.</p>
+      <div class="contact-links">
+        <a href="mailto:ologunbabatunde@gmail.com">Email ↗</a>
+        <a href="https://github.com/xohdik" target="_blank" rel="noreferrer">GitHub ↗</a>
+        <a href="https://www.linkedin.com/in/ologunbabatunde" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+        <a href={resumeUrl} target="_blank" rel="noreferrer">Résumé ↗</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

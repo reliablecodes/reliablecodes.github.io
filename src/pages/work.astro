@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { selectedWork } from '../data/portfolio';
+---
+
+<BaseLayout
+  title="Selected Work — TundeCodes"
+  description="Selected product, production, and research engineering work by Sodiq Babatunde Ologun."
+>
+  <section class="page-hero section-shell reveal">
+    <p class="section-number">WORK / DEBUG · BUILD · VERIFY</p>
+    <h1>Products, production systems, and engineering investigations.</h1>
+    <p>The portfolio is organized around difficult systems problems: what I built, what I operated, and what I investigated deeply enough to understand the failure mode.</p>
+  </section>
+
+  <section class="case-list section-shell">
+    {selectedWork.map((project) => {
+      const isAnonymous = 'anonymous' in project && project.anonymous === true;
+      return isAnonymous ? (
+        <article class="case-study anonymous-case reveal" id={project.slug}>
+          <div class="case-title"><h2>{project.title}</h2></div>
+        </article>
+      ) : (
+        <article class="case-study reveal" id={project.slug}>
+          <div class="case-kicker">
+            <span>{project.index}</span>
+            <span>{project.kind} · {project.status}</span>
+          </div>
+          <div class="case-grid">
+            <div class="case-title">
+              <h2>{project.title}</h2>
+              <p>{project.role}</p>
+            </div>
+            <div class="case-body">
+              <p class="case-summary">{project.summary}</p>
+              <div class="case-detail">
+                <h3>Challenge</h3>
+                <p>{project.challenge}</p>
+              </div>
+              <div class="case-detail">
+                <h3>What I owned</h3>
+                <ul>
+                  {project.contribution.map((item) => <li>{item}</li>)}
+                </ul>
+              </div>
+              <div class="case-stack">
+                {project.stack.map((item) => <span>{item}</span>)}
+              </div>
+              {project.href !== `/work#${project.slug}` && (
+                <div class="case-link">
+                  <a href={project.href} target={project.href.startsWith('http') ? '_blank' : undefined} rel={project.href.startsWith('http') ? 'noreferrer' : undefined}>
+                    Open project context ↗
+                  </a>
+                </div>
+              )}
+            </div>
+          </div>
+        </article>
+      );
+    })}
+  </section>
+</BaseLayout>

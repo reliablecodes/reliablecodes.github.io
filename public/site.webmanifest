@@ -1,0 +1,16 @@
+{
+  "name": "TundeCodes",
+  "short_name": "TundeCodes",
+  "description": "Software engineering, systems, and research portfolio of Sodiq Babatunde Ologun.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#efeee8",
+  "theme_color": "#10110f",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
