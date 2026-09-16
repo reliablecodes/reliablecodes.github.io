@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { selectedWork, researchItems, appliedProjects, experience, capabilities } from '../data/portfolio';
-const portraitUrl = 'https://raw.githubusercontent.com/xohdik/xohdik.github.io/tundecodes-redesign/public/images/tundecodes.webp';
 const resumeUrl = 'https://raw.githubusercontent.com/xohdik/xohdik.github.io/tundecodes-redesign/public/resume.pdf';
 ---
 
@@ -11,20 +10,30 @@ const resumeUrl = 'https://raw.githubusercontent.com/xohdik/xohdik.github.io/tun
 >
   <section class="hero section-shell">
     <div class="hero-copy reveal">
-      <p class="eyebrow">DEBUG · BUILD · VERIFY</p>
-      <h1>I debug systems before they <em>break trust.</em></h1>
-      <p class="hero-intro">I build products, operate production systems, and investigate software behavior with the same mindset: find the hidden failure mode, understand it, and engineer something stronger.</p>
+      <p class="eyebrow">RELIABLECODE LAB · DEBUG · BUILD · VERIFY</p>
+      <h1>Debugging is how I <em>think.</em></h1>
+      <p class="hero-intro">I specialize in software verification and programming languages, with a focus on making AI-generated code correct, reliable, and explainable.</p>
       <div class="hero-links">
         <a class="primary-link" href="#work">Selected work <span>↓</span></a>
+        <a class="plain-link" href="https://github.com/reliablecodes" target="_blank" rel="noreferrer">ReliableCode Lab ↗</a>
         <a class="plain-link" href="https://github.com/xohdik" target="_blank" rel="noreferrer">GitHub ↗</a>
       </div>
     </div>
 
     <figure class="portrait-wrap reveal delay-1">
-      <div class="portrait-meta"><span>SOFTWARE ENGINEER · RESEARCHER</span><span>DEBUG / 2026</span></div>
-      <img src={portraitUrl} width="900" height="900" alt="Portrait of Sodiq Babatunde Ologun" loading="eager" fetchpriority="high" />
+      <div class="portrait-meta"><span>TUNDECODES · RELIABLECODE LAB</span><span>DEBUG / 2026</span></div>
+      <img src="/images/tunde-portrait.webp" width="720" height="720" alt="Portrait of Sodiq Babatunde Ologun" loading="eager" fetchpriority="high" />
       <figcaption>SODIQ BABATUNDE OLOGUN</figcaption>
     </figure>
+  </section>
+
+  <section class="lab-banner section-shell reveal" aria-label="ReliableCode Lab visual identity">
+    <div class="lab-banner-copy">
+      <p class="section-number">RELIABLECODE LAB</p>
+      <h2>Reliable systems start with visible failure modes.</h2>
+      <p>Software verification · Programming languages · Code intelligence · Neuro-symbolic analysis</p>
+    </div>
+    <img src="/images/reliablecode-banner.webp" alt="ReliableCode Lab visual identity" loading="lazy" />
   </section>
 
   <section class="statement section-shell reveal">
@@ -161,6 +170,7 @@ while system.is_live():
       <div class="contact-links">
         <a href="mailto:ologunbabatunde@gmail.com">Email ↗</a>
         <a href="https://github.com/xohdik" target="_blank" rel="noreferrer">GitHub ↗</a>
+        <a href="https://github.com/reliablecodes" target="_blank" rel="noreferrer">ReliableCode Lab ↗</a>
         <a href="https://www.linkedin.com/in/ologunbabatunde" target="_blank" rel="noreferrer">LinkedIn ↗</a>
         <a href="https://www.friendra.com" target="_blank" rel="noreferrer">Friendra ↗</a>
         <a href="tel:+8618583994003">Phone ↗</a>
