@@ -1,0 +1,88 @@
+/* Final responsive and media polish */
+html, body { width: 100%; max-width: 100%; overflow-x: clip; }
+
+.portrait-wrap { width: 100%; max-width: 100%; overflow: hidden; }
+.portrait-wrap img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: cover;
+  object-position: center center;
+  background: #303030;
+}
+
+.terminal-video {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #080908;
+}
+.terminal-video video {
+  display: block;
+  width: 100%;
+  height: clamp(320px, 52vw, 760px);
+  object-fit: cover;
+  border: 0;
+  outline: 0;
+  margin: 0;
+  padding: 0;
+  background: #080908;
+}
+
+.footer-mark {
+  font-size: clamp(3.5rem, 10.2vw, 10rem);
+  line-height: .84;
+  letter-spacing: -.08em;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+@media (max-width: 900px) {
+  .site-header {
+    width: 100%;
+    max-width: 100vw;
+    grid-template-columns: minmax(0, 1fr) auto;
+    overflow: hidden;
+  }
+  .wordmark { min-width: 0; }
+  .header-actions { min-width: max-content; }
+  .menu-button {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    min-width: 48px;
+    min-height: 44px;
+    padding: 0 4px;
+    position: relative;
+    z-index: 70;
+  }
+  .mobile-menu {
+    width: 100vw;
+    max-width: 100vw;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  .hero, .hero-copy, .portrait-wrap, .lab-banner,
+  .engineering-console, .project-index, .research-section,
+  .experience-section, .contact-section, .site-footer {
+    min-width: 0;
+    max-width: 100%;
+  }
+  .portrait-wrap {
+    min-height: 0;
+    aspect-ratio: 1 / 1.1;
+  }
+  .portrait-wrap img { aspect-ratio: 1 / 1; }
+  .terminal-video video { height: 52svh; min-height: 300px; }
+  .footer-mark { font-size: clamp(3rem, 17vw, 7rem); letter-spacing: -.075em; }
+}
+
+@media (max-width: 560px) {
+  .site-header { padding-inline: 14px; }
+  .wordmark { font-size: 12px; }
+  .portrait-meta, .portrait-wrap figcaption { font-size: 8px; letter-spacing: .05em; }
+  .terminal-video video { height: 42svh; min-height: 240px; }
+  .footer-mark { font-size: 15.5vw; letter-spacing: -.065em; }
+}
