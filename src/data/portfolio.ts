@@ -38,7 +38,7 @@ export const selectedWork = [
   {
     slug: 'code-model-behavior',
     index: '03',
-    title: 'Do Code Models Follow Program Behavior?',
+    title: 'Do Code Models Follow Program Behavior? Matched Counterfactual Testing Across the Semantic Boundary.',
     href: '/research#code-model-behavior',
     anonymous: true,
   },
@@ -79,7 +79,7 @@ export const selectedWork = [
 export const researchItems = [
   {
     slug: 'code-model-behavior',
-    title: 'Do Code Models Follow Program Behavior?',
+    title: 'Do Code Models Follow Program Behavior? Matched Counterfactual Testing Across the Semantic Boundary.',
     anonymous: true,
   },
   {
@@ -113,6 +113,21 @@ export const appliedProjects = [
     title: 'Neuro-Symbolic Program Verification',
     description: 'Hybrid verification work combining formal methods with graph-based neural representations for reasoning about generated program behavior.',
     stack: 'Neuro-symbolic · Program analysis · GNNs · Siamese networks',
+  },
+  {
+    title: 'Robotics Coordination',
+    description: 'Coordination and control work for multi-robot systems, including task allocation, communication, and reliable cooperative execution.',
+    stack: 'Robotics · Multi-agent systems · Coordination · Control',
+  },
+  {
+    title: 'Autonomous Vehicle Systems',
+    description: 'Autonomous-driving engineering across perception, planning, control, and system-level integration for vehicle prototypes.',
+    stack: 'Autonomous systems · Computer vision · Planning · Control',
+  },
+  {
+    title: 'WeChat Mini Program Development',
+    description: 'Development of lightweight WeChat Mini Programs for mobile service workflows, user interaction, and API-backed features.',
+    stack: 'WeChat Mini Program · JavaScript · Mobile UI · API integration',
   },
   {
     title: 'Restaurant Ordering System',
