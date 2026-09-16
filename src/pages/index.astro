@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { selectedWork, researchItems, appliedProjects, experience, capabilities } from '../data/portfolio';
 const resumeUrl = 'https://raw.githubusercontent.com/xohdik/xohdik.github.io/tundecodes-redesign/public/resume.pdf';
+const terminalVideo = 'https://raw.githubusercontent.com/xohdik/xohdik.github.io/0bbb0d05b78438ddd73ebebf6889756396d62ce5/public/videos/hero-bg.mp4';
 ---
 
 <BaseLayout
@@ -86,6 +87,10 @@ while system.is_live():
         isolate(failure)
         <span class="code-accent">fix_root_cause()</span></code></pre>
     </div>
+  </section>
+
+  <section class="terminal-video reveal" aria-label="Terminal installation session">
+    <video autoplay muted loop playsinline preload="metadata" src={terminalVideo}></video>
   </section>
 
   <section class="project-index section-shell">
