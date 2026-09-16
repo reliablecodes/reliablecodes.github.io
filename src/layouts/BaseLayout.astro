@@ -9,8 +9,8 @@ interface Props {
 
 const {
   title = 'TundeCodes — Software Engineer',
-  description = 'Software engineer and researcher debugging complex products, production systems, and software-engineering evidence.',
-  image = 'https://raw.githubusercontent.com/xohdik/xohdik.github.io/tundecodes-redesign/public/images/tundecodes.webp',
+  description = 'Software engineer and researcher specializing in software verification, programming languages, and reliable AI-generated code.',
+  image = '/images/tunde-portrait.webp',
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin);
@@ -27,16 +27,18 @@ const schema = {
   jobTitle: 'Software Engineer and Researcher',
   sameAs: [
     'https://github.com/xohdik',
+    'https://github.com/reliablecodes',
     'https://www.linkedin.com/in/ologunbabatunde',
   ],
   knowsAbout: [
+    'Software Verification',
+    'Programming Languages',
+    'Formal Analysis',
+    'Program Graphs',
+    'Neuro-symbolic Reasoning',
+    'Code Intelligence',
     'Software Engineering',
     'Software Reliability',
-    'Program Analysis',
-    'Code Intelligence',
-    'Data Engineering',
-    'Production Systems',
-    'Product Engineering',
   ],
 };
 ---
@@ -77,6 +79,7 @@ const schema = {
         <a href="/#about">About</a>
       </nav>
       <div class="header-actions">
+        <a class="lab-link desktop-only" href="https://github.com/reliablecodes" target="_blank" rel="noreferrer">RELIABLECODE LAB ↗</a>
         <span class="debug-status desktop-only"><i></i> DEBUG MODE</span>
         <a class="text-link desktop-only" href={resumeUrl} target="_blank" rel="noreferrer">Résumé ↗</a>
         <button class="menu-button" aria-label="Open navigation menu" aria-expanded="false">Menu</button>
@@ -89,6 +92,7 @@ const schema = {
       <a href="/research">Research</a>
       <a href="/#experience">Experience</a>
       <a href="/#about">About</a>
+      <a href="https://github.com/reliablecodes" target="_blank" rel="noreferrer">ReliableCode Lab ↗</a>
       <a href={resumeUrl} target="_blank" rel="noreferrer">Résumé ↗</a>
     </div>
 
@@ -100,7 +104,7 @@ const schema = {
       <div class="footer-mark">TUNDE<span>CODES</span></div>
       <div>
         <span>DEBUG · BUILD · VERIFY</span>
-        <span>SOFTWARE ENGINEER · RESEARCHER</span>
+        <span>RELIABLECODE LAB · SOFTWARE ENGINEER · RESEARCHER</span>
         <span>© 2026</span>
       </div>
     </footer>
@@ -127,6 +131,7 @@ const schema = {
         if (event.key === 'Escape') closeMenu();
       });
 
+      document.documentElement.classList.add('js-ready');
       const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       if (reducedMotion) {
         document.querySelectorAll('.reveal').forEach((el) => el.classList.add('is-visible'));
