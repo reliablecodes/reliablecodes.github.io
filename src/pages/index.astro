@@ -37,9 +37,45 @@ const terminalVideo = 'https://raw.githubusercontent.com/xohdik/xohdik.github.io
     <img src="/images/reliablecode-banner.webp" alt="ReliableCode Group visual identity" loading="lazy" />
   </section>
 
+  <section class="now-strip section-shell reveal" aria-label="Current focus">
+    <div class="now-label"><span class="now-dot"></span><strong>NOW / 2026</strong></div>
+    <p>Building ReliableCode Group around <strong>software verification</strong>, <strong>neuro-symbolic code analysis</strong>, <strong>code intelligence</strong>, and production systems that need to hold up beyond the demo.</p>
+    <a href="https://github.com/reliablecodes" target="_blank" rel="noreferrer">Follow the work ↗</a>
+  </section>
+
   <section class="statement section-shell reveal">
     <p class="section-number">01 / DEBUG MINDSET</p>
     <p class="statement-copy">I work by <strong>finding what does not hold up</strong>: in product architecture, production infrastructure, data, experiments, and model evaluation. Then I build the fix.</p>
+  </section>
+
+  <section class="github-proof section-shell reveal" aria-label="GitHub and open-source work">
+    <div class="github-proof-head">
+      <div>
+        <p class="section-number">GITHUB / OPEN SOURCE</p>
+        <h2>Work you can inspect.</h2>
+      </div>
+      <p>ReliableCode Group is the new public home for code, research tooling, and reproducible engineering work as projects are prepared for release.</p>
+    </div>
+    <div class="github-proof-grid">
+      <a class="github-proof-card" href="https://github.com/reliablecodes" target="_blank" rel="noreferrer">
+        <span>ORGANIZATION</span>
+        <h3>ReliableCode Group</h3>
+        <p>Reliable software research, verification, code intelligence, and engineering systems.</p>
+        <strong>github.com/reliablecodes ↗</strong>
+      </a>
+      <a class="github-proof-card" href="https://github.com/reliablecodes/reliablecodes.github.io" target="_blank" rel="noreferrer">
+        <span>PUBLIC REPOSITORY</span>
+        <h3>reliablecodes.github.io</h3>
+        <p>The source for this portfolio and the public web home of ReliableCode Group.</p>
+        <strong>View repository ↗</strong>
+      </a>
+      <a class="github-proof-card" href="https://github.com/xohdik" target="_blank" rel="noreferrer">
+        <span>ENGINEER</span>
+        <h3>@xohdik</h3>
+        <p>My personal GitHub history and engineering work across software, systems, and research.</p>
+        <strong>View profile ↗</strong>
+      </a>
+    </div>
   </section>
 
   <section id="work" class="work-section dark-section">
@@ -184,3 +220,41 @@ while system.is_live():
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  .now-strip {
+    margin-top: 18px;
+    margin-bottom: 18px;
+    padding: 20px 0;
+    display: grid;
+    grid-template-columns: 150px minmax(0, 1fr) auto;
+    gap: 24px;
+    align-items: center;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .now-label { display: flex; align-items: center; gap: 10px; font: 800 11px/1.2 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; letter-spacing: .08em; }
+  .now-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--signal); box-shadow: 0 0 0 4px color-mix(in srgb, var(--signal) 18%, transparent); }
+  .now-strip p { margin: 0; max-width: 900px; line-height: 1.55; }
+  .now-strip a { color: var(--ink); font-weight: 800; text-decoration: none; white-space: nowrap; }
+
+  .github-proof { padding-top: 72px; padding-bottom: 88px; }
+  .github-proof-head { display: grid; grid-template-columns: 1.15fr .85fr; gap: 48px; align-items: end; margin-bottom: 34px; }
+  .github-proof-head h2 { margin: 8px 0 0; font-size: clamp(2.2rem, 5vw, 5rem); line-height: .94; letter-spacing: -.055em; }
+  .github-proof-head > p { margin: 0; max-width: 620px; line-height: 1.65; }
+  .github-proof-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+  .github-proof-card { min-width: 0; padding: 28px; min-height: 260px; display: flex; flex-direction: column; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); color: var(--ink); text-decoration: none; transition: transform .18s ease, background .18s ease; }
+  .github-proof-card:hover { transform: translateY(-3px); background: color-mix(in srgb, var(--signal) 9%, var(--paper)); }
+  .github-proof-card > span { font: 800 10px/1.2 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; letter-spacing: .1em; opacity: .66; }
+  .github-proof-card h3 { margin: 36px 0 12px; font-size: clamp(1.35rem, 2.4vw, 2rem); letter-spacing: -.035em; }
+  .github-proof-card p { margin: 0 0 28px; line-height: 1.55; opacity: .78; }
+  .github-proof-card strong { margin-top: auto; font-size: .9rem; }
+
+  @media (max-width: 900px) {
+    .now-strip { grid-template-columns: 1fr; gap: 12px; }
+    .now-strip a { width: fit-content; }
+    .github-proof-head { grid-template-columns: 1fr; gap: 18px; }
+    .github-proof-grid { grid-template-columns: 1fr; }
+    .github-proof-card { min-height: 220px; }
+  }
+</style>
