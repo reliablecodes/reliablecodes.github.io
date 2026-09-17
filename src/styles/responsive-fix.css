@@ -39,7 +39,7 @@ main, section, header, footer, nav, .section-shell, .hero, .portrait-wrap, .lab-
 }
 
 @media (min-width: 901px) {
-  .footer-mark { font-size: clamp(3.6rem, 9.2vw, 9.25rem) !important; }
+  .footer-mark { font-size: clamp(3.6rem, 9.2vw, 9.25rem); }
   .portrait-wrap { min-width: 0; }
 }
 
@@ -62,7 +62,7 @@ main, section, header, footer, nav, .section-shell, .hero, .portrait-wrap, .lab-
   .work-main, .work-side, .research-row > div, .experience-row > *, .project-index-row > * { min-width: 0; overflow-wrap: anywhere; }
   .console-grid pre { width: 100%; max-width: 100%; white-space: pre-wrap; overflow-wrap: anywhere; }
   .site-footer { overflow: hidden; }
-  .footer-mark { width: 100%; max-width: 100%; font-size: clamp(3rem, 17.2vw, 6.5rem) !important; letter-spacing: -.075em; white-space: nowrap !important; line-height: .88; }
+  .footer-mark { width: 100%; max-width: 100%; font-size: clamp(3rem, 17.2vw, 6.5rem); letter-spacing: -.075em; white-space: nowrap !important; line-height: .88; }
 }
 
 @media (max-width: 560px) {
@@ -80,7 +80,7 @@ main, section, header, footer, nav, .section-shell, .hero, .portrait-wrap, .lab-
   .portrait-wrap figcaption { overflow-wrap: anywhere; }
   .portrait-wrap img { max-height: none; }
   .lab-banner-copy h2 { font-size: clamp(2rem, 12vw, 3.5rem); }
-  .footer-mark { font-size: 16.5vw !important; }
+  .footer-mark { font-size: 16.5vw; }
 }
 
 .terminal-video-section { width: 100%; margin: 0; padding: 0; overflow: hidden; background: #10110f; }
