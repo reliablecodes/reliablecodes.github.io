@@ -71,6 +71,7 @@ const schema = {
     <link rel="canonical" href={canonical} />
     <link rel="icon" href="/favicon.svg" />
     <link rel="manifest" href="/site.webmanifest" />
+    <link rel="stylesheet" href="/debug-playground.css" />
     <title>{title}</title>
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
   </head>
@@ -157,5 +158,6 @@ const schema = {
       }
     </script>
     <script is:inline src="/contact-form.js" defer></script>
+    <script is:inline src="/debug-playground.js" defer></script>
   </body>
 </html>
