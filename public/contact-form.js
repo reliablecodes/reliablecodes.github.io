@@ -1,6 +1,7 @@
 (() => {
   const section = document.querySelector('.contact-section');
   if (!section || section.querySelector('.contact-form-shell')) return;
+  section.id = 'contact';
 
   const SERVICE_ID = 'service_51p88jg';
   const TEMPLATE_ID = 'template_omc7vby';
