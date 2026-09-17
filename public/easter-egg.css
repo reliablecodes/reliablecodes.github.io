@@ -1,0 +1,98 @@
+html.secret-debug-mode {
+  --paper: #071007;
+  --ink: #b7ff9d;
+  --line: rgba(140,255,102,.24);
+  background: #050805;
+  filter: saturate(1.08);
+}
+html.secret-debug-mode body {
+  background: #050805 !important;
+  color: #b7ff9d !important;
+}
+html.secret-debug-mode body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9997;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(140,255,102,.035) 0,
+    rgba(140,255,102,.035) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+  mix-blend-mode: screen;
+}
+html.secret-debug-mode body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9996;
+  box-shadow: inset 0 0 120px rgba(0,0,0,.9);
+}
+html.secret-debug-mode img,
+html.secret-debug-mode video {
+  filter: grayscale(.35) contrast(1.08) sepia(.08) hue-rotate(55deg) saturate(.85);
+}
+html.secret-debug-mode a,
+html.secret-debug-mode button,
+html.secret-debug-mode .section-number,
+html.secret-debug-mode .eyebrow,
+html.secret-debug-mode .code-accent {
+  color: #8cff66 !important;
+}
+html.secret-debug-mode .site-header,
+html.secret-debug-mode .mobile-menu,
+html.secret-debug-mode .site-footer,
+html.secret-debug-mode .debug-terminal,
+html.secret-debug-mode .bug-code,
+html.secret-debug-mode .dark-section {
+  background: #050805 !important;
+  color: #b7ff9d !important;
+  border-color: rgba(140,255,102,.24) !important;
+}
+html.secret-debug-mode .github-proof-card,
+html.secret-debug-mode .bug-hunt-panel,
+html.secret-debug-mode .contact-form-shell {
+  background: #091109 !important;
+  border-color: rgba(140,255,102,.24) !important;
+}
+.secret-debug-toast {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: 9999;
+  transform: translate(-50%, -50%) scale(.96);
+  width: min(92vw, 520px);
+  padding: 20px 22px;
+  border: 1px solid #8cff66;
+  background: rgba(5,8,5,.96);
+  color: #b7ff9d;
+  box-shadow: 0 30px 80px rgba(0,0,0,.45), 0 0 40px rgba(140,255,102,.12);
+  font: 700 12px/1.6 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  letter-spacing: .04em;
+  opacity: 0;
+  transition: opacity .18s ease, transform .18s ease;
+  pointer-events: none;
+}
+.secret-debug-toast.is-visible {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+.secret-debug-toast strong {
+  display: block;
+  margin-bottom: 8px;
+  color: #8cff66;
+  font-size: 13px;
+  letter-spacing: .08em;
+}
+.secret-debug-toast small {
+  display: block;
+  margin-top: 8px;
+  color: #7f9d76;
+}
+@media (prefers-reduced-motion: reduce) {
+  .secret-debug-toast { transition: none; }
+}
