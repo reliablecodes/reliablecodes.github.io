@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import '../styles/responsive-fix.css';
 import '../styles/polish.css';
+import '../styles/contact-form.css';
 
 interface Props {
   title?: string;
@@ -79,6 +80,7 @@ const schema = {
         <a href="/research" aria-current={pathname.startsWith('/research') ? 'page' : undefined}>Research</a>
         <a href="/#experience">Experience</a>
         <a href="/#about">About</a>
+        <a href="/#contact">Contact</a>
       </nav>
       <div class="header-actions">
         <a class="lab-link desktop-only" href="https://github.com/reliablecodes" target="_blank" rel="noreferrer">RELIABLECODE GROUP ↗</a>
@@ -94,6 +96,7 @@ const schema = {
       <a href="/research">Research</a>
       <a href="/#experience">Experience</a>
       <a href="/#about">About</a>
+      <a href="/#contact">Contact</a>
       <a href="https://github.com/reliablecodes" target="_blank" rel="noreferrer">ReliableCode Group ↗</a>
       <a href={resumeUrl} target="_blank" rel="noreferrer">Résumé ↗</a>
     </div>
@@ -149,5 +152,6 @@ const schema = {
         document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
       }
     </script>
+    <script is:inline src="/contact-form.js" defer></script>
   </body>
 </html>
