@@ -76,6 +76,7 @@ const schema = {
     <link rel="stylesheet" href="/bug-hunt.css" />
     <link rel="stylesheet" href="/easter-egg.css" />
     <link rel="stylesheet" href="/build-pipeline.css" />
+    <link rel="stylesheet" href="/moving-text.css" />
     <title>{title}</title>
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
   </head>
@@ -95,11 +96,22 @@ const schema = {
       </nav>
       <div class="header-actions">
         <a class="lab-link desktop-only" href="https://github.com/reliablecodes" target="_blank" rel="noreferrer">RELIABLECODE GROUP ↗</a>
-        <span class="debug-status desktop-only" title="Debug mode"><i></i> DEBUG MODE</span>
+        <span class="debug-status desktop-only motion-pulse" title="Debug mode"><i></i> DEBUG MODE</span>
         <a class="text-link desktop-only" href={resumeUrl} target="_blank" rel="noreferrer">Résumé ↗</a>
         <button class="menu-button" aria-label="Open navigation menu" aria-expanded="false">Menu</button>
       </div>
     </header>
+
+    <div class="motion-strip" aria-label="ReliableCode focus areas">
+      <div class="motion-track">
+        <div class="motion-group">
+          <span>DEBUG · BUILD · VERIFY</span><span>SOFTWARE VERIFICATION</span><span>PROGRAMMING LANGUAGES</span><span>CODE INTELLIGENCE</span><span>NEURO-SYMBOLIC ANALYSIS</span><span>RELIABLE SYSTEMS</span>
+        </div>
+        <div class="motion-group" aria-hidden="true">
+          <span>DEBUG · BUILD · VERIFY</span><span>SOFTWARE VERIFICATION</span><span>PROGRAMMING LANGUAGES</span><span>CODE INTELLIGENCE</span><span>NEURO-SYMBOLIC ANALYSIS</span><span>RELIABLE SYSTEMS</span>
+        </div>
+      </div>
+    </div>
 
     <div class="mobile-menu" aria-hidden="true">
       <div class="mobile-menu-status"><span></span> DEBUG MODE</div>
@@ -119,6 +131,17 @@ const schema = {
     <main id="content">
       <slot />
     </main>
+
+    <div class="motion-strip alt" aria-label="ReliableCode engineering principles">
+      <div class="motion-track">
+        <div class="motion-group">
+          <span>FIND THE FAILURE</span><span>TRACE THE MECHANISM</span><span>FIX THE ROOT CAUSE</span><span>VERIFY THE BEHAVIOR</span><span>SHIP WITH EVIDENCE</span>
+        </div>
+        <div class="motion-group" aria-hidden="true">
+          <span>FIND THE FAILURE</span><span>TRACE THE MECHANISM</span><span>FIX THE ROOT CAUSE</span><span>VERIFY THE BEHAVIOR</span><span>SHIP WITH EVIDENCE</span>
+        </div>
+      </div>
+    </div>
 
     <footer class="site-footer section-shell">
       <div class="footer-mark">TUNDE<span>CODES</span></div>
