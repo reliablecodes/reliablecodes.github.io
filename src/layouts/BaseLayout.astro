@@ -19,7 +19,7 @@ const {
 const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin);
 const socialImage = new URL(image, Astro.site ?? Astro.url.origin);
 const pathname = Astro.url.pathname;
-const resumeUrl = 'https://raw.githubusercontent.com/xohdik/xohdik.github.io/tundecodes-redesign/public/resume.pdf';
+const resumeUrl = '/resume.pdf';
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
