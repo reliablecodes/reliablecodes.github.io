@@ -13,7 +13,7 @@ interface Props {
 const {
   title = 'TundeCodes — Software Engineer',
   description = 'Software engineer and researcher specializing in software verification, programming languages, and reliable AI-generated code.',
-  image = '/images/tunde-portrait.webp',
+  image = '/images/tunde-portrait.jpg?v=6',
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin);
@@ -60,10 +60,14 @@ const schema = {
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={socialImage} />
+    <meta property="og:image:width" content="800" />
+    <meta property="og:image:height" content="800" />
+    <meta property="og:image:alt" content="Sodiq Babatunde Ologun — TundeCodes / ReliableCode Group" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={socialImage} />
+    <meta name="twitter:image:alt" content="Sodiq Babatunde Ologun — TundeCodes / ReliableCode Group" />
     <link rel="canonical" href={canonical} />
     <link rel="icon" href="/favicon.svg" />
     <link rel="manifest" href="/site.webmanifest" />
