@@ -73,6 +73,7 @@ const schema = {
     <link rel="manifest" href="/site.webmanifest" />
     <link rel="stylesheet" href="/debug-playground.css" />
     <link rel="stylesheet" href="/bug-hunt.css" />
+    <link rel="stylesheet" href="/easter-egg.css" />
     <title>{title}</title>
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
   </head>
@@ -91,7 +92,7 @@ const schema = {
       </nav>
       <div class="header-actions">
         <a class="lab-link desktop-only" href="https://github.com/reliablecodes" target="_blank" rel="noreferrer">RELIABLECODE GROUP ↗</a>
-        <span class="debug-status desktop-only"><i></i> DEBUG MODE</span>
+        <span class="debug-status desktop-only" title="Debug mode"><i></i> DEBUG MODE</span>
         <a class="text-link desktop-only" href={resumeUrl} target="_blank" rel="noreferrer">Résumé ↗</a>
         <button class="menu-button" aria-label="Open navigation menu" aria-expanded="false">Menu</button>
       </div>
@@ -166,5 +167,6 @@ const schema = {
     <script is:inline src="/contact-form.js" defer></script>
     <script is:inline src="/debug-playground.js" defer></script>
     <script is:inline src="/bug-hunt.js" defer></script>
+    <script is:inline src="/easter-egg.js" defer></script>
   </body>
 </html>
