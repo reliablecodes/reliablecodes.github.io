@@ -3,6 +3,7 @@ import '../styles/global.css';
 import '../styles/responsive-fix.css';
 import '../styles/polish.css';
 import '../styles/contact-form.css';
+import '../styles/blog.css';
 
 interface Props {
   title?: string;
@@ -86,6 +87,7 @@ const schema = {
       <nav class="desktop-nav" aria-label="Primary navigation">
         <a href="/work" aria-current={pathname.startsWith('/work') ? 'page' : undefined}>Work</a>
         <a href="/research" aria-current={pathname.startsWith('/research') ? 'page' : undefined}>Research</a>
+        <a href="/blog" aria-current={pathname.startsWith('/blog') ? 'page' : undefined}>Blog</a>
         <a href="/#debug-playground">Play</a>
         <a href="/#experience">Experience</a>
         <a href="/#about">About</a>
@@ -103,6 +105,7 @@ const schema = {
       <div class="mobile-menu-status"><span></span> DEBUG MODE</div>
       <a href="/work">Work</a>
       <a href="/research">Research</a>
+      <a href="/blog">Blog</a>
       <a href="/#debug-playground">Debug Playground</a>
       <a href="/#bug-hunt">Bug Hunt</a>
       <a href="/#build-pipeline">Build Pipeline</a>
@@ -121,6 +124,7 @@ const schema = {
       <div class="footer-mark">TUNDE<span>CODES</span></div>
       <div>
         <span>DEBUG · BUILD · VERIFY</span>
+        <a href="/blog">BLOG ↗</a>
         <a href="/#debug-playground">DEBUG PLAYGROUND ↗</a>
         <a href="/#bug-hunt">BUG HUNT ↗</a>
         <a href="/#build-pipeline">BUILD PIPELINE ↗</a>
