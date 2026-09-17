@@ -37,7 +37,6 @@ html.secret-debug-mode video {
   filter: grayscale(.35) contrast(1.08) sepia(.08) hue-rotate(55deg) saturate(.85);
 }
 html.secret-debug-mode a,
-html.secret-debug-mode button,
 html.secret-debug-mode .section-number,
 html.secret-debug-mode .eyebrow,
 html.secret-debug-mode .code-accent {
@@ -83,24 +82,29 @@ html.secret-debug-mode .contact-form-shell {
   border-color: rgba(140,255,102,.24) !important;
 }
 
-/* Global debug-mode button color made the green contact CTA lose contrast. */
-html.secret-debug-mode .contact-submit {
+/* Preserve each component's intentional button palette in debug mode. */
+html.secret-debug-mode .contact-submit,
+html.secret-debug-mode .pipeline-run,
+html.secret-debug-mode .bug-hunt-controls button {
   background: #8cff66 !important;
   border-color: #8cff66 !important;
   color: #071007 !important;
-  opacity: 1 !important;
   text-shadow: none !important;
-  box-shadow: none !important;
 }
 html.secret-debug-mode .contact-submit:hover:not(:disabled),
-html.secret-debug-mode .contact-submit:focus-visible {
+html.secret-debug-mode .contact-submit:focus-visible,
+html.secret-debug-mode .pipeline-run:hover:not(:disabled),
+html.secret-debug-mode .pipeline-run:focus-visible,
+html.secret-debug-mode .bug-hunt-controls button:hover,
+html.secret-debug-mode .bug-hunt-controls button:focus-visible {
   background: #b7ff9d !important;
   border-color: #b7ff9d !important;
   color: #050805 !important;
 }
-html.secret-debug-mode .contact-submit:disabled {
+html.secret-debug-mode .contact-submit:disabled,
+html.secret-debug-mode .pipeline-run:disabled,
+html.secret-debug-mode .bug-hunt-controls button:disabled {
   color: #071007 !important;
-  opacity: .72 !important;
 }
 
 .secret-debug-toast {
