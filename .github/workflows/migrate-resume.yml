@@ -18,27 +18,37 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Copy resume from legacy repository
+      - name: Ensure resume is local
         shell: bash
         run: |
           set -euo pipefail
-          mkdir -p public
-          curl --fail --location --retry 3 \
-            https://raw.githubusercontent.com/xohdik/xohdik.github.io/main/resume.pdf \
-            --output public/resume.pdf
+          if [ ! -s public/resume.pdf ]; then
+            mkdir -p public
+            curl --fail --location --retry 3 \
+              https://raw.githubusercontent.com/xohdik/xohdik.github.io/main/resume.pdf \
+              --output public/resume.pdf
+          fi
           test -s public/resume.pdf
           file public/resume.pdf
 
-      - name: Commit resume to this repository
+      - name: Point portfolio links to local resume
         shell: bash
         run: |
           set -euo pipefail
-          if git diff --quiet -- public/resume.pdf && git ls-files --error-unmatch public/resume.pdf >/dev/null 2>&1; then
-            echo 'Resume is already migrated.'
+          OLD='https://raw.githubusercontent.com/xohdik/xohdik.github.io/tundecodes-redesign/public/resume.pdf'
+          sed -i "s#${OLD}#/resume.pdf#g" src/layouts/BaseLayout.astro src/pages/index.astro
+          grep -n "const resumeUrl = '/resume.pdf';" src/layouts/BaseLayout.astro src/pages/index.astro
+
+      - name: Commit finalized migration
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- public/resume.pdf src/layouts/BaseLayout.astro src/pages/index.astro; then
+            echo 'Resume migration is already finalized.'
             exit 0
           fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add public/resume.pdf
-          git commit -m 'chore: add resume to ReliableCode site'
+          git add public/resume.pdf src/layouts/BaseLayout.astro src/pages/index.astro
+          git commit -m 'chore: serve resume from ReliableCode site'
           git push origin HEAD:main
