@@ -40,35 +40,14 @@ html, body { width: 100%; max-width: 100%; overflow-x: clip; }
 }
 
 .visit-counter,
-.visit-counter b,
-.visit-counter #gcvc,
-.visit-counter #gcvc-views {
+.visit-counter b {
   font: inherit;
   color: inherit;
   letter-spacing: inherit;
   text-transform: inherit;
 }
 
-.visit-counter #gcvc {
-  display: inline !important;
-  border: 0 !important;
-  background: transparent !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  width: auto !important;
-  min-width: 0 !important;
-  height: auto !important;
-  box-shadow: none !important;
-}
-
-.visit-counter #gcvc-for,
-.visit-counter #gcvc-by {
-  display: none !important;
-}
-
-.visit-counter #gcvc-views {
-  font-weight: 800 !important;
-}
+.visit-counter b { font-weight: 800; }
 
 @media (max-width: 900px) {
   .site-header {
@@ -107,7 +86,7 @@ html, body { width: 100%; max-width: 100%; overflow-x: clip; }
   }
   .portrait-wrap img { aspect-ratio: 1 / 1; }
   .terminal-video video { height: 52svh; min-height: 300px; }
-  .footer-mark { font-size: clamp(2.7rem, 14.5vw, 6.2rem); letter-spacing: -.068em; }
+  .footer-mark { font-size: clamp(2.4rem, 12.2vw, 5.4rem); letter-spacing: -.06em; }
 }
 
 @media (max-width: 560px) {
@@ -115,5 +94,5 @@ html, body { width: 100%; max-width: 100%; overflow-x: clip; }
   .wordmark { font-size: 12px; }
   .portrait-meta, .portrait-wrap figcaption { font-size: 8px; letter-spacing: .05em; }
   .terminal-video video { height: 42svh; min-height: 240px; }
-  .footer-mark { font-size: 13.25vw; letter-spacing: -.055em; }
+  .footer-mark { font-size: 11.5vw; letter-spacing: -.045em; }
 }
