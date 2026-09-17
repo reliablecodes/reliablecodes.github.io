@@ -53,6 +53,29 @@ html.secret-debug-mode .dark-section {
   color: #b7ff9d !important;
   border-color: rgba(140,255,102,.24) !important;
 }
+
+/* Keep the About block readable when secret debug mode is active. */
+html.secret-debug-mode .about-section {
+  background: #071007 !important;
+  color: #d9ffd0 !important;
+}
+html.secret-debug-mode .about-section .about-lead h2,
+html.secret-debug-mode .about-section .about-copy > p,
+html.secret-debug-mode .about-section .about-manifesto,
+html.secret-debug-mode .about-section strong {
+  color: #d9ffd0 !important;
+}
+html.secret-debug-mode .about-section .section-number,
+html.secret-debug-mode .about-section .capability-list,
+html.secret-debug-mode .about-section .capability-list * {
+  color: #9fff7d !important;
+}
+html.secret-debug-mode .about-section .about-manifesto,
+html.secret-debug-mode .about-section .capability-list,
+html.secret-debug-mode .about-section .capability-list > * {
+  border-color: rgba(140,255,102,.22) !important;
+}
+
 html.secret-debug-mode .github-proof-card,
 html.secret-debug-mode .bug-hunt-panel,
 html.secret-debug-mode .contact-form-shell {
