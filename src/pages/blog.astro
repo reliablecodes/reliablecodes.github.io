@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Blog — TundeCodes"
+  description="Long-form software engineering notes by Sodiq Babatunde Ologun, written for both technical and non-technical readers."
+>
+  <div class="blog-shell">
+    <section class="blog-hero reveal">
+      <p class="section-number">BLOG / SOFTWARE EXPLAINED CLEARLY</p>
+      <h1>Software ideas without the gatekeeping.</h1>
+      <p>Long-form notes about software engineering, debugging, reliability, AI-generated code, system design, and the reasoning behind technical decisions. The goal is simple: explain difficult ideas well enough that a curious non-programmer can follow them, while still giving engineers something useful to take away.</p>
+    </section>
+
+    <section class="blog-grid" aria-label="Articles">
+      <a class="blog-card" href="/blog/how-software-actually-works">
+        <span class="meta">FOUNDATIONS · 20+ MIN READ · BEGINNER FRIENDLY</span>
+        <h2>How Software Actually Works: From a Click on Your Screen to Code, Servers, Databases, Bugs, and Reliability</h2>
+        <p>A complete mental model of modern software for people who do not code yet: what code is, what a frontend and backend do, why APIs exist, where databases fit, why bugs happen, how developers debug systems, and what “reliable software” really means.</p>
+        <strong>READ THE GUIDE ↗</strong>
+      </a>
+
+      <article class="blog-card secondary">
+        <span class="meta">COMING NEXT</span>
+        <h2>Why software breaks even when the code “looks correct.”</h2>
+        <p>A practical explanation of hidden assumptions, edge cases, concurrency, bad data, network failure, and why testing cannot prove everything.</p>
+        <strong>IN DRAFT</strong>
+      </article>
+    </section>
+  </div>
+</BaseLayout>
