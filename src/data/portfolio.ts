@@ -183,6 +183,6 @@ export const experience = [
 
 export const capabilities = [
   'Software verification', 'Programming languages', 'Formal analysis', 'Program graphs', 'Neuro-symbolic reasoning', 'Code intelligence',
-  'Software architecture', 'Product engineering', 'Production systems', 'Python — Advanced', 'Ruby — Advanced', 'Java — High', 'C++ — High',
+  'Software architecture', 'Product engineering', 'Production systems', 'Python — Advanced', 'Ruby — Advanced', 'Java — High', 'C++ — High', 'MATLAB — High',
   'TypeScript / JavaScript', 'React', 'PostgreSQL', 'Linux / Nginx', 'Docker', 'Experimental design', 'Benchmark auditing', 'Graph neural networks', 'PyTorch',
 ];
