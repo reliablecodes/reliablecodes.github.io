@@ -18,7 +18,7 @@ jobs:
 
       - name: Decode portrait
         run: |
-          cat portrait-q68/part0.b64 portrait-q68/part1.b64 portrait-q68/part2.b64 portrait-q68/part3.b64 | base64 -d > /tmp/tunde-portrait.jpg
+          cat portrait-q68/part0a.b64 portrait-q68/part0b.b64 portrait-q68/part1.b64 portrait-q68/part2.b64 portrait-q68/part3.b64 | base64 -d > /tmp/tunde-portrait.jpg
           file /tmp/tunde-portrait.jpg
           test "$(stat -c%s /tmp/tunde-portrait.jpg)" -eq 34661
 
