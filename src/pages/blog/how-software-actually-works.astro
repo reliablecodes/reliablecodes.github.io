@@ -12,7 +12,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       <h1>How Software Actually Works</h1>
       <p class="article-deck">From a click on your screen to code, servers, databases, bugs, debugging, testing, deployment, and reliability — explained for someone who has never written a line of code.</p>
       <p class="article-meta">SODIQ BABATUNDE OLOGUN · TUNDECODES · LONG READ</p>
-      <p class="reading-note">You do not need programming experience for this article. Code examples are explained line by line.</p>
+      <p class="reading-note">You do not need programming experience for this article. Every code example is explained in plain English.</p>
     </header>
 
     <div class="article-layout">
@@ -36,17 +36,14 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       </aside>
 
       <div class="article-body">
-        <p>Software can feel mysterious because we usually see only the surface. You tap a button, money moves. You search for a restaurant, results appear. You send a message, another person sees it seconds later. The visible action is simple, but behind it there may be a browser, an operating system, application code, a network request, several servers, a database, a cache, background jobs, logs, security checks, and monitoring systems.</p>
+        <p>Software can feel mysterious because we usually see only the surface. You tap a button, money moves. You search for a restaurant, results appear. You send a message, another person sees it seconds later. Behind that simple action there may be a browser, an operating system, application code, a network request, several servers, a database, a cache, background jobs, logs, security checks, and monitoring systems.</p>
 
-        <p>The easiest way to understand software is not to memorize technical words. It is to build a mental model of how information moves through a system. Once that model is clear, terms such as frontend, backend, API, database, deployment, testing, and debugging stop sounding like separate topics. They become different parts of the same story.</p>
+        <p>The easiest way to understand software is to follow how information moves through the system. Once that mental model is clear, words such as frontend, backend, API, database, deployment, testing, and debugging become parts of one connected story.</p>
 
-        <div class="plain-box">
-          <strong>THE BIG IDEA</strong>
-          Software is a set of instructions that receives information, makes decisions, changes or stores information, and produces an observable result.
-        </div>
+        <div class="plain-box"><strong>THE BIG IDEA</strong>Software receives information, applies rules, changes or stores information, and produces an observable result.</div>
 
         <h2 id="mental-model">1. Start with one simple mental model</h2>
-        <p>Imagine a restaurant. A customer reads a menu, gives an order to a waiter, the waiter carries that order to the kitchen, the kitchen prepares the food, and the waiter returns with the result. A software system often behaves in a similar way.</p>
+        <p>Imagine a restaurant. A customer reads a menu, gives an order to a waiter, the waiter carries the order to the kitchen, the kitchen prepares the food, and the waiter returns with the result. A software system often behaves in a similar way.</p>
 
         <div class="diagram">PERSON
   ↓
@@ -64,234 +61,177 @@ RESPONSE
   ↓
 SCREEN UPDATES</div>
 
-        <p>The screen is what you can see. The server performs work you usually cannot see. The database remembers information. The network transports messages between these pieces. Code describes what each part should do.</p>
-
-        <p>Not every application uses exactly this architecture. A calculator can run almost entirely on your device. A banking app may communicate with many internal services. A large marketplace might use hundreds of services. But the simple model is still useful because it gives you a place to attach new ideas.</p>
+        <p>The screen is what you can see. The server performs work you usually cannot see. The database remembers information. The network carries messages between these pieces. Code describes what each part should do.</p>
 
         <h2 id="code">2. What code actually is</h2>
-        <p>Code is written instructions in a programming language. A programming language is a structured way for a human to describe operations that a computer can eventually execute.</p>
+        <p>Code is a structured set of instructions. A programming language gives humans a precise way to describe operations that a computer can execute.</p>
 
-        <p>Consider this tiny JavaScript function:</p>
-        <pre><code>function add(a, b) {
+        <pre><code>function add(a, b) &#123;
   return a + b;
-}
+&#125;
 
 const total = add(4, 6);
 console.log(total);</code></pre>
 
-        <p>Read it in ordinary English. We create a reusable instruction called <code>add</code>. It accepts two values named <code>a</code> and <code>b</code>. It returns their sum. Then we ask it to add 4 and 6. Finally, we print the answer.</p>
-
-        <p>The important concept is not the punctuation. The important concept is that code expresses logic. Most real applications are made from many small pieces of logic connected together.</p>
+        <p>In plain English: create a reusable action called <code>add</code>, give it two values, return their sum, then call it with 4 and 6. The important idea is not punctuation. It is that code expresses logic.</p>
 
         <h3>Variables are named containers</h3>
-        <p>A variable gives a name to a value:</p>
         <pre><code>const customerName = "Ada";
 const cartTotal = 12500;
 const isPaid = true;</code></pre>
-
-        <p>You can think of <code>customerName</code>, <code>cartTotal</code>, and <code>isPaid</code> as labels attached to values. The names help humans reason about what the program is doing.</p>
+        <p>The names help humans understand what each value means. Good names reduce confusion and make future debugging easier.</p>
 
         <h3>Conditions let software make decisions</h3>
-        <pre><code>if (isPaid) {
+        <pre><code>if (isPaid) &#123;
   sendReceipt();
-} else {
+&#125; else &#123;
   askForPayment();
-}</code></pre>
-
-        <p>This means: if payment is complete, send a receipt. Otherwise, ask for payment. A great deal of software is simply a very large collection of decisions like this.</p>
+&#125;</code></pre>
+        <p>This says: if payment is complete, send a receipt. Otherwise, ask for payment. Real systems contain thousands of decisions like this.</p>
 
         <h3>Functions package behavior</h3>
-        <p>A function is a reusable action. You can think of it like a small machine: information goes in, work happens, and a result may come out.</p>
-        <pre><code>function calculateDelivery(subtotal) {
-  if (subtotal &gt;= 50000) {
+        <pre><code>function calculateDelivery(subtotal) &#123;
+  if (subtotal &gt;= 50000) &#123;
     return 0;
-  }
+  &#125;
   return 2500;
-}</code></pre>
-
-        <p>Here the business rule is clear: orders of at least 50,000 receive free delivery. Otherwise delivery costs 2,500. Real business software contains thousands of rules of this kind.</p>
+&#125;</code></pre>
+        <p>The rule is simple: orders of at least 50,000 get free delivery. Otherwise delivery costs 2,500.</p>
 
         <h2 id="frontend">3. The frontend: the part people interact with</h2>
-        <p>The frontend is the visible and interactive portion of an application. On the web, it includes things such as buttons, forms, menus, images, text, animations, product cards, dashboards, and error messages.</p>
-
-        <p>A browser typically works with three foundational technologies:</p>
+        <p>The frontend is what users see and touch: buttons, forms, menus, text, images, dashboards, animations, error messages, and navigation.</p>
         <ul>
-          <li><strong>HTML</strong> describes the structure: headings, buttons, forms, sections.</li>
-          <li><strong>CSS</strong> controls presentation: spacing, typography, colors, layout, responsive behavior.</li>
-          <li><strong>JavaScript</strong> adds behavior: opening menus, validating forms, fetching data, updating the page.</li>
+          <li><strong>HTML</strong> describes structure.</li>
+          <li><strong>CSS</strong> controls layout and visual appearance.</li>
+          <li><strong>JavaScript</strong> adds behavior and interaction.</li>
         </ul>
 
-        <p>Here is a tiny button:</p>
         <pre><code>&lt;button id="hello"&gt;Say hello&lt;/button&gt;
 
 &lt;script&gt;
-  document.querySelector('#hello').addEventListener('click', () =&gt; {
+  document.querySelector('#hello').addEventListener('click', () =&gt; &#123;
     alert('Hello!');
-  });
+  &#125;);
 &lt;/script&gt;</code></pre>
 
-        <p>The first line creates a button. The script finds the button and says, “when somebody clicks this, show a message.” Modern frameworks such as React, Vue, Svelte, and others provide more structured ways to build large interfaces, but the underlying idea is still user action → program logic → visible change.</p>
-
-        <h3>Responsive design</h3>
-        <p>A good interface must also adapt to different screen sizes. The same page may be viewed on a 27-inch desktop monitor and a narrow phone. Responsive design changes layout according to the available space rather than assuming one fixed screen size.</p>
+        <p>The browser finds the button and waits for a click. When a click happens, it runs the attached behavior. Modern frameworks such as React, Vue, and Svelte organize this idea for larger applications.</p>
 
         <h2 id="backend">4. The backend: the work behind the screen</h2>
-        <p>The backend is code that usually runs on a server rather than directly in the user's browser. It handles things the application should not trust to the user device: authentication, authorization, payments, business rules, database access, secret credentials, and coordination with external services.</p>
+        <p>The backend usually runs on a server. It handles sensitive and authoritative work such as authentication, permissions, payments, business rules, database access, and communication with external services.</p>
 
-        <p>Imagine an online store. The frontend can display a “Buy” button, but it should not be allowed to decide that an item costs ₦1. A dishonest user can modify browser code. The server must independently check the real product price before accepting the order.</p>
+        <p>A browser should never be trusted to decide important values such as price. A user controls the browser and can modify requests. The server should verify important facts itself.</p>
 
         <pre><code>// simplified server logic
 const product = await database.products.find(productId);
 
-if (!product) {
+if (!product) &#123;
   return error("Product not found");
-}
+&#125;
 
 const total = product.price * quantity;
 return createOrder(userId, product.id, quantity, total);</code></pre>
 
-        <p>The server retrieves the authoritative product record, calculates the total itself, and creates the order. This demonstrates an important engineering principle: <strong>never trust important values merely because the browser sent them.</strong></p>
+        <p>The server reads the authoritative product record, computes the total, and creates the order using trusted data.</p>
 
         <h2 id="api">5. APIs: how pieces of software talk</h2>
-        <p>An API is an agreed way for one piece of software to communicate with another. The word sounds abstract, but the concept is ordinary. A restaurant menu is a kind of interface: it tells you what you can request and how to request it.</p>
+        <p>An API is an agreed way for one piece of software to communicate with another. A restaurant menu is a useful analogy: it tells you what you may request and how to request it.</p>
 
-        <p>A website might ask its server for a user's orders using a request conceptually like:</p>
         <pre><code>GET /api/orders</code></pre>
+        <p>The server might respond with data that the frontend turns into cards, rows, or notifications.</p>
 
-        <p>The server may respond with data:</p>
-        <pre><code>{
+        <pre><code>&#123;
   "orders": [
-    {
+    &#123;
       "id": 1042,
       "status": "shipped",
       "total": 18500
-    }
+    &#125;
   ]
-}</code></pre>
+&#125;</code></pre>
 
-        <p>The browser reads that response and turns it into a nice visual card. The API is the contract between the screen and the server.</p>
-
-        <h3>Common request types</h3>
-        <p>Web APIs often use HTTP methods. You do not need to memorize them immediately, but their intent is useful:</p>
-        <ul>
-          <li><code>GET</code> — retrieve information.</li>
-          <li><code>POST</code> — create something or perform an action.</li>
-          <li><code>PUT</code> or <code>PATCH</code> — update existing information.</li>
-          <li><code>DELETE</code> — remove something.</li>
-        </ul>
+        <p>Common HTTP methods include <code>GET</code> for reading, <code>POST</code> for creating or performing an action, <code>PATCH</code> for updating, and <code>DELETE</code> for removing.</p>
 
         <h2 id="database">6. Databases: how software remembers</h2>
-        <p>If an application forgot everything whenever the server restarted, it would be nearly useless. Databases provide persistent storage for information such as users, products, orders, messages, subscriptions, permissions, and configuration.</p>
+        <p>A database stores information that must survive after a request finishes or a server restarts. Typical records include users, products, orders, messages, subscriptions, permissions, and configuration.</p>
 
-        <p>A relational database can be imagined as carefully structured tables. For example:</p>
         <pre><code>users
-+----+----------------+-------------------------+
-| id | name           | email                   |
-+----+----------------+-------------------------+
-| 1  | Ada Okafor     | ada@example.com         |
-| 2  | Musa Bello     | musa@example.com        |
-+----+----------------+-------------------------+</code></pre>
++----+-------------+-------------------+
+| id | name        | email             |
++----+-------------+-------------------+
+| 1  | Ada Okafor  | ada@example.com   |
+| 2  | Musa Bello  | musa@example.com  |
++----+-------------+-------------------+</code></pre>
 
-        <p>An orders table might reference a user:</p>
-        <pre><code>orders
-+------+---------+---------+----------+
-| id   | user_id | total   | status   |
-+------+---------+---------+----------+
-| 1042 | 1       | 18500   | shipped  |
-+------+---------+---------+----------+</code></pre>
-
-        <p>The relationship tells us that order 1042 belongs to user 1. Database systems such as PostgreSQL provide powerful tools for querying, updating, protecting, and coordinating this information.</p>
-
-        <h3>Why databases are harder than a spreadsheet</h3>
-        <p>A production database may have many people using it at exactly the same time. Two customers might try to buy the final item in stock simultaneously. The database must help the application keep information consistent even under concurrency, failure, and partial operations.</p>
+        <p>Databases are harder than spreadsheets because many users may read and write at the same time. The system must preserve consistency when requests overlap, fail halfway, or compete for the same data.</p>
 
         <h2 id="request">7. What happens when you click “Place order”</h2>
-        <p>Now we can connect everything. Suppose you are buying a pair of shoes online.</p>
-
         <ol>
-          <li>You press <strong>Place order</strong> in the frontend.</li>
-          <li>JavaScript collects the product ID, quantity, delivery address, and other required information.</li>
-          <li>The browser sends a request over the network to the backend API.</li>
-          <li>The backend verifies that you are authenticated.</li>
-          <li>It validates the request: quantity must be positive, the address must be acceptable, the product must exist.</li>
-          <li>It asks the database for the authoritative product price and inventory.</li>
-          <li>It calculates totals using server-side rules.</li>
-          <li>If payment is required, it communicates with a payment provider using protected credentials.</li>
-          <li>It records the order in the database.</li>
-          <li>It sends a response back to the browser.</li>
-          <li>The frontend changes from the checkout screen to “Order confirmed.”</li>
-          <li>Other background processes may send email, update analytics, or notify the merchant.</li>
+          <li>You press <strong>Place order</strong>.</li>
+          <li>The frontend gathers the order information.</li>
+          <li>The browser sends a network request to the backend.</li>
+          <li>The backend checks who you are and whether the request is valid.</li>
+          <li>The server reads trusted product and inventory data.</li>
+          <li>It computes totals using server-side rules.</li>
+          <li>It may contact a payment provider.</li>
+          <li>It stores the order in the database.</li>
+          <li>It returns a response.</li>
+          <li>The frontend changes to “Order confirmed.”</li>
+          <li>Background jobs may send email or notify the merchant.</li>
         </ol>
 
         <blockquote>The user experiences one click. The system experiences a chain of assumptions that all need to remain correct.</blockquote>
 
         <h2 id="bugs">8. Why software has bugs</h2>
-        <p>A bug is behavior that differs from what is intended or required. Bugs are not limited to obvious syntax mistakes. Some of the hardest bugs arise when every individual line looks reasonable but the assumptions between components are wrong.</p>
+        <p>A bug is behavior that differs from what was intended. Some bugs are obvious. Others happen because assumptions between components are wrong.</p>
 
-        <h3>Example: off-by-one error</h3>
-        <pre><code>for (let i = 0; i &lt;= items.length; i++) {
+        <h3>Off-by-one error</h3>
+        <pre><code>for (let i = 0; i &lt;= items.length; i++) &#123;
   console.log(items[i]);
-}</code></pre>
+&#125;</code></pre>
+        <p>If an array has three items, the valid positions are usually 0, 1, and 2. The condition above also allows position 3. A one-character difference can change the result.</p>
 
-        <p>If an array has three items, valid positions are usually 0, 1, and 2. But <code>i &lt;= items.length</code> also allows position 3. The correct condition here is typically <code>i &lt; items.length</code>. A single character can change program behavior.</p>
-
-        <h3>Example: assumptions about missing data</h3>
+        <h3>Missing data</h3>
         <pre><code>const city = user.address.city;</code></pre>
+        <p>This assumes <code>user.address</code> exists. If it is missing, the program can fail. Reliable software asks: can this be absent, slow, duplicated, malformed, concurrent, or unavailable?</p>
 
-        <p>This works only if <code>user.address</code> exists. If an older account has no stored address, the program can fail. Robust software asks questions such as: Can this value be missing? Can the network fail? Can two requests arrive at the same time? What if the user clicks twice? What if an external service responds slowly?</p>
-
-        <h3>Example: concurrency</h3>
-        <p>Suppose a bank balance is 100. Two operations both read 100. One adds 20 and writes 120. The other subtracts 10 and writes 90. Depending on timing, the final value may incorrectly become 120 or 90 instead of 110. This is a race condition: correctness depends on the order in which concurrent work happens.</p>
+        <h3>Race conditions</h3>
+        <p>Suppose a balance is 100. Two operations read 100 at the same time. One adds 20 while the other subtracts 10. If both later write their own result, one update can overwrite the other. Correctness now depends on timing.</p>
 
         <h2 id="debugging">9. Debugging is evidence gathering</h2>
-        <p>Debugging means finding why observed behavior differs from expected behavior. Good debugging is not random editing. It is a disciplined process of narrowing possibilities.</p>
-
-        <p>A useful sequence is:</p>
+        <p>Good debugging is not random editing. A strong process is:</p>
         <ol>
-          <li><strong>Reproduce</strong> the problem reliably.</li>
-          <li><strong>Observe</strong> what actually happened.</li>
-          <li><strong>Localize</strong> where the behavior diverged from expectation.</li>
-          <li><strong>Form a hypothesis</strong> about the cause.</li>
-          <li><strong>Test the hypothesis</strong> with evidence.</li>
-          <li><strong>Fix the root cause</strong>, not merely the visible symptom.</li>
-          <li><strong>Add protection</strong> so the same class of problem is easier to catch next time.</li>
+          <li>Reproduce the problem.</li>
+          <li>Observe what actually happened.</li>
+          <li>Localize where behavior diverged from expectation.</li>
+          <li>Form a hypothesis.</li>
+          <li>Test that hypothesis with evidence.</li>
+          <li>Fix the root cause.</li>
+          <li>Add protection so the same problem is easier to catch next time.</li>
         </ol>
 
-        <p>Engineers use many sources of evidence: logs, stack traces, database records, network requests, browser developer tools, metrics, tests, debuggers, traces, and minimal reproductions.</p>
+        <p>Useful evidence includes logs, stack traces, database records, network requests, metrics, tests, traces, and browser developer tools.</p>
 
-        <h3>Logs</h3>
-        <p>A log is a structured record emitted by software while it runs. A useful log might say:</p>
         <pre><code>2026-09-17T10:30:12Z order.create user=42 product=9 quantity=2
 2026-09-17T10:30:12Z payment.authorize order=1042 status=success
 2026-09-17T10:30:13Z order.persist order=1042 status=success</code></pre>
 
-        <p>These messages let an engineer reconstruct what happened. Good logging should help explain the system without leaking passwords, payment secrets, or other sensitive information.</p>
+        <p>A good log helps reconstruct what happened without leaking passwords, payment secrets, or private data.</p>
 
         <h2 id="testing">10. Testing: checking behavior before users do</h2>
-        <p>Testing executes software under controlled conditions and compares what happened with what should have happened.</p>
+        <p>Testing runs software under controlled conditions and compares actual behavior with expected behavior.</p>
 
-        <h3>Unit test</h3>
-        <p>A unit test checks a small piece of logic:</p>
-        <pre><code>function deliveryFee(total) {
+        <pre><code>function deliveryFee(total) &#123;
   return total &gt;= 50000 ? 0 : 2500;
-}
+&#125;
 
 expect(deliveryFee(60000)).toBe(0);
 expect(deliveryFee(10000)).toBe(2500);</code></pre>
 
-        <p>The test documents an expectation. If someone later changes the function and free delivery stops working, the test can alert the team.</p>
+        <p>A unit test checks a small piece of logic. An integration test checks several parts working together. An end-to-end test may open the app, sign in, add something to a cart, check out, and verify that confirmation appears.</p>
 
-        <h3>Integration testing</h3>
-        <p>An integration test checks whether several parts work together. For example: can the API create an order and correctly persist it to the database?</p>
-
-        <h3>End-to-end testing</h3>
-        <p>An end-to-end test may open the application like a user, sign in, add an item to the cart, check out, and verify that an order confirmation appears.</p>
-
-        <p>No realistic test suite proves that complex software has zero bugs. The goal is to build enough evidence that important behavior works and dangerous regressions are caught early.</p>
+        <p>Tests do not prove that a complex system has zero bugs. They provide evidence and catch regressions before users do.</p>
 
         <h2 id="deployment">11. Deployment: getting code into the real world</h2>
-        <p>Developers usually write code in a development environment, commit changes to version control, and then move approved code through a build and deployment process.</p>
-
         <div class="diagram">WRITE CODE
    ↓
 VERSION CONTROL
@@ -306,72 +246,40 @@ DEPLOY
    ↓
 MONITOR</div>
 
-        <p>This is the idea behind continuous integration and continuous deployment, often shortened to CI/CD. Automation reduces the number of manual steps required to ship safely and consistently.</p>
-
-        <h3>What is a build?</h3>
-        <p>A build transforms source code into something ready to run or distribute. A web application might compile TypeScript, process CSS, optimize images, and generate static pages. Other languages might compile source code into machine instructions or package dependencies into a deployable artifact.</p>
+        <p>This is the basic idea behind CI/CD. A build prepares the software for release. Deployment places that build where users can access it. Monitoring tells the team what happens after release.</p>
 
         <h2 id="reliability">12. Reliable software is more than software that “works”</h2>
-        <p>Software can work perfectly in a demonstration and still fail in production. Reliability asks a harder question: does the system continue to behave acceptably when reality becomes messy?</p>
+        <p>A demo can work perfectly and still fail in production. Production introduces slow networks, invalid input, traffic spikes, hardware failures, third-party outages, concurrent requests, partial failures, and human mistakes.</p>
 
-        <p>Reality includes:</p>
-        <ul>
-          <li>slow or unavailable networks,</li>
-          <li>invalid input,</li>
-          <li>unexpected user behavior,</li>
-          <li>traffic spikes,</li>
-          <li>hardware failures,</li>
-          <li>third-party outages,</li>
-          <li>concurrent requests,</li>
-          <li>partial database failures,</li>
-          <li>software updates,</li>
-          <li>human mistakes.</li>
-        </ul>
-
-        <p>Reliable engineering therefore includes validation, redundancy where appropriate, timeouts, retries with care, backups, monitoring, graceful error handling, safe deployment practices, access control, and clear recovery procedures.</p>
+        <p>Reliable engineering therefore uses validation, timeouts, safe retries, backups, monitoring, graceful errors, access control, recovery procedures, and careful deployment practices.</p>
 
         <h3>Timeouts</h3>
-        <p>If your server calls another service and that service never responds, should your application wait forever? Usually not. A timeout gives the operation a limit.</p>
+        <p>If another service never responds, waiting forever is usually wrong. A timeout limits how long the system waits.</p>
 
         <h3>Retries</h3>
-        <p>If a temporary network problem occurs, retrying may help. But retries can also be dangerous. Retrying “charge customer” carelessly could create duplicate payments unless the operation is designed to be safely repeated.</p>
+        <p>Retries can help with temporary failures, but dangerous operations must be designed carefully. Retrying “charge customer” can create duplicate payments if the action is not idempotent.</p>
 
         <h3>Observability</h3>
-        <p>You cannot reliably operate a system you cannot observe. Metrics answer questions such as how many requests are failing. Logs provide detailed events. Traces show how one request moved through multiple services. Alerts notify people when behavior crosses important thresholds.</p>
+        <p>Metrics answer “how much is failing?” Logs answer “what happened?” Traces answer “where did this request travel?” Alerts tell people when behavior crosses important limits.</p>
 
         <h2 id="security">13. Security basics every beginner should understand</h2>
-        <p>Security is not a feature added at the end. It is a property of how a system handles trust.</p>
+        <p>Security is fundamentally about trust. Authentication asks who you are. Authorization asks what you are allowed to do.</p>
 
-        <h3>Authentication vs authorization</h3>
-        <p><strong>Authentication</strong> asks, “Who are you?” <strong>Authorization</strong> asks, “Are you allowed to do this?” A user may be successfully logged in but still not be allowed to view another person's private orders.</p>
+        <p>Important values must be validated on trusted infrastructure. Passwords should not be stored as readable text. Private API keys, database passwords, and signing secrets should never be embedded in public frontend code.</p>
 
-        <h3>Never trust client-side input</h3>
-        <p>A browser is controlled by the person using it. Hidden fields can be changed. Requests can be manually constructed. Therefore important decisions — prices, permissions, ownership, account balances — must be validated on trusted server-side infrastructure.</p>
-
-        <h3>Passwords should not be stored as plain text</h3>
-        <p>A responsible application does not keep a readable list of user passwords. Passwords are normally transformed using specialized password-hashing algorithms designed for this purpose, together with appropriate salts and parameters. If the database is compromised, this significantly changes the attacker's job compared with exposing raw passwords.</p>
-
-        <h3>Secrets do not belong in public frontend code</h3>
-        <p>Credentials that grant privileged access — private API keys, database passwords, signing secrets — should not be embedded in JavaScript sent to every visitor. Public identifiers are different from secrets; the engineering task is to know which is which and design accordingly.</p>
+        <div class="plain-box"><strong>TRUST RULE</strong>A browser is controlled by the user. Treat anything sent from it as untrusted until the server validates it.</div>
 
         <h2 id="ai">14. Where AI-generated code changes the picture</h2>
-        <p>AI systems can now generate code quickly, explain syntax, suggest tests, refactor functions, and help developers explore unfamiliar codebases. This can be extremely useful. But code that looks plausible is not the same as code that is correct.</p>
+        <p>AI can generate code quickly, explain syntax, suggest tests, refactor functions, and help developers explore unfamiliar systems. But plausible-looking code is not the same as correct code.</p>
 
-        <p>A generated function can compile and still misunderstand the requirement. It can pass common examples and fail on an edge case. It can call the wrong API, introduce insecure assumptions, or duplicate logic that already exists elsewhere.</p>
+        <p>Generated code may compile and still misunderstand the requirement. It may pass common examples and fail edge cases. It may use the wrong API, introduce insecure assumptions, or duplicate existing logic.</p>
 
-        <p>This is why verification matters. The question is not only, “Can an AI write code?” The stronger engineering question is, “What evidence do we have that this code behaves correctly under the conditions that matter?”</p>
+        <div class="plain-box"><strong>A USEFUL RULE</strong>Treat AI-generated code like code from a very fast contributor who still needs review, tests, context, and evidence.</div>
 
-        <div class="plain-box">
-          <strong>A USEFUL RULE</strong>
-          Treat AI-generated code like code from a very fast contributor who still needs review, tests, context, and evidence.
-        </div>
-
-        <p>For simple code, that evidence may be tests and code review. For safety-critical or high-assurance software, stronger approaches may be needed: static analysis, property checking, formal specifications, runtime monitoring, symbolic reasoning, or carefully designed validation pipelines.</p>
+        <p>For simple software, tests and review may be enough. Higher-assurance systems may need static analysis, property checking, formal specifications, runtime monitoring, symbolic reasoning, or verification pipelines.</p>
 
         <h2 id="learn">15. How to learn software engineering without drowning</h2>
-        <p>A beginner often tries to learn everything at once: HTML, CSS, JavaScript, React, Python, databases, Git, Docker, cloud platforms, algorithms, system design. That creates unnecessary confusion.</p>
-
-        <p>A better path is to learn one complete loop:</p>
+        <p>Do not try to learn every framework at once. Learn one complete loop:</p>
         <ol>
           <li>Build a simple interface.</li>
           <li>Make one user action trigger code.</li>
@@ -379,36 +287,24 @@ MONITOR</div>
           <li>Store and retrieve one piece of data.</li>
           <li>Handle one error properly.</li>
           <li>Write a test for one important rule.</li>
-          <li>Deploy it somewhere you can actually use it.</li>
+          <li>Deploy it somewhere real.</li>
           <li>Break it intentionally and debug it.</li>
         </ol>
 
-        <p>That loop teaches more than memorizing a long list of technologies because it connects the pieces into a system.</p>
-
-        <h3>A tiny project idea</h3>
-        <p>Build a personal task tracker. Start with only three capabilities: create a task, mark it complete, and list previous tasks. Then add accounts. Then validation. Then tests. Then deployment. Then logging. Each new requirement gives you a reason to learn the next concept.</p>
+        <p>A small task tracker is enough. Start with create, complete, and list. Then add accounts, validation, tests, deployment, and logging. Each requirement gives you a reason to learn the next concept.</p>
 
         <h2>Closing idea: software is managed complexity</h2>
-        <p>The most important thing to understand about software engineering is that typing code is only one part of the job. The deeper work is managing complexity and uncertainty.</p>
-
-        <p>An engineer asks: What does the system promise? What information can be trusted? What happens when an assumption fails? How will we know something is wrong? How do we reproduce it? How do we prevent the same problem from returning? How can another person understand this code six months later?</p>
-
-        <p>Once you start asking those questions, software stops looking like magic. It becomes a system of decisions, interfaces, state, evidence, and trade-offs.</p>
+        <p>Typing code is only one part of software engineering. The deeper work is understanding promises, assumptions, state, interfaces, failure, evidence, recovery, and trade-offs.</p>
 
         <blockquote>Good software engineering is not merely making the happy path work. It is understanding the system well enough to know what happens when the happy path disappears.</blockquote>
 
         <div class="article-cta">
-          <div>
-            <strong>TRY THE IDEAS</strong>
-            <p>Use the interactive Debug Playground, Bug Hunt, and Build Pipeline on the homepage.</p>
-          </div>
+          <div><strong>TRY THE IDEAS</strong><p>Use the interactive Debug Playground, Bug Hunt, and Build Pipeline on the homepage.</p></div>
           <a href="/#debug-playground">Open Playground ↗</a>
         </div>
       </div>
     </div>
 
-    <footer class="article-end">
-      <a href="/blog">← Back to Blog</a>
-    </footer>
+    <footer class="article-end"><a href="/blog">← Back to Blog</a></footer>
   </article>
 </BaseLayout>
