@@ -1,6 +1,14 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { selectedWork, appliedProjects } from '../data/portfolio';
+
+const proofLabel = (href?: string) => {
+  if (!href) return 'PROJECT CONTEXT';
+  if (href.includes('github.com')) return 'SOURCE / GITHUB';
+  if (href.startsWith('http')) return 'LIVE SYSTEM';
+  if (href.startsWith('/research')) return 'RESEARCH CONTEXT';
+  return 'PROJECT CONTEXT';
+};
 ---
 
 <BaseLayout
@@ -47,9 +55,10 @@ import { selectedWork, appliedProjects } from '../data/portfolio';
                 {project.stack?.map((item) => <span>{item}</span>)}
               </div>
               {project.href !== `/work#${project.slug}` && (
-                <div class="case-link">
+                <div class="case-proof">
+                  <span>{proofLabel(project.href)}</span>
                   <a href={project.href} target={project.href.startsWith('http') ? '_blank' : undefined} rel={project.href.startsWith('http') ? 'noreferrer' : undefined}>
-                    Open project context ↗
+                    {project.href.includes('github.com') ? 'View source ↗' : project.href.startsWith('http') ? 'Open live system ↗' : 'Open context ↗'}
                   </a>
                 </div>
               )}
@@ -69,10 +78,46 @@ import { selectedWork, appliedProjects } from '../data/portfolio';
       {appliedProjects.map((project, i) => (
         <a class="project-index-row reveal" href={project.href ?? 'https://github.com/xohdik?tab=repositories'} target="_blank" rel="noreferrer">
           <span>{String(i + 1).padStart(2, '0')}</span>
-          <div><h3>{project.title}</h3><p>{project.description}</p></div>
+          <div>
+            <h3>{project.title}</h3>
+            <p>{project.description}</p>
+            {project.href && <b class="proof-tag">{proofLabel(project.href)} ↗</b>}
+          </div>
           <small>{project.stack}</small>
         </a>
       ))}
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  .case-proof {
+    margin-top: 26px;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+  }
+  .case-proof > span,
+  .proof-tag {
+    font: 800 10px/1.2 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    letter-spacing: .1em;
+  }
+  .case-proof > span { opacity: .55; }
+  .case-proof a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: 800;
+  }
+  .case-proof a:hover { text-decoration: underline; text-underline-offset: 4px; }
+  .proof-tag {
+    display: inline-block;
+    margin-top: 14px;
+    opacity: .72;
+  }
+  @media (max-width: 640px) {
+    .case-proof { align-items: flex-start; flex-direction: column; gap: 8px; }
+  }
+</style>
