@@ -5,6 +5,7 @@
   if (!mountAfter || document.querySelector('[data-debug-playground]')) return;
 
   const section = document.createElement('section');
+  section.id = 'debug-playground';
   section.className = 'debug-playground section-shell reveal is-visible';
   section.setAttribute('data-debug-playground', '');
   section.innerHTML = `
