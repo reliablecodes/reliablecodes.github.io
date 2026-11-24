@@ -12,11 +12,12 @@ interface Props {
 }
 
 const {
-  title = 'TundeCodes — Software Engineer',
+  title = 'TundeCodes | Software Engineer',
   description = 'Software engineer and researcher specializing in software verification, programming languages, and reliable AI-generated code.',
   image = '/images/tunde-portrait.jpg?v=6',
 } = Astro.props;
 
+const pageTitle = title.replace(/ — /g, ' | ');
 const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin);
 const socialImage = new URL(image, Astro.site ?? Astro.url.origin);
 const pathname = Astro.url.pathname;
@@ -56,7 +57,7 @@ const schema = {
     <meta name="description" content={description} />
     <meta name="author" content="Sodiq Babatunde Ologun" />
     <meta name="robots" content="index, follow" />
-    <meta property="og:title" content={title} />
+    <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
@@ -65,7 +66,7 @@ const schema = {
     <meta property="og:image:height" content="800" />
     <meta property="og:image:alt" content="Sodiq Babatunde Ologun — TundeCodes / ReliableCode Group" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
+    <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={socialImage} />
     <meta name="twitter:image:alt" content="Sodiq Babatunde Ologun — TundeCodes / ReliableCode Group" />
@@ -77,7 +78,7 @@ const schema = {
     <link rel="stylesheet" href="/easter-egg.css" />
     <link rel="stylesheet" href="/build-pipeline.css" />
     <link rel="stylesheet" href="/moving-text.css" />
-    <title>{title}</title>
+    <title>{pageTitle}</title>
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
   </head>
   <body>
